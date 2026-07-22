@@ -1,0 +1,1741 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOX LIBRAS | Soluções Corporativas em Acessibilidade e Língua Brasileira de Sinais</title>
+    
+    <!-- Meta SEO & Open Graph -->
+    <meta name="description" content="Plataforma B2B de Acessibilidade em LIBRAS. Central On-Demand, Interpretação de Eventos, Tradução de Materiais e Consultoria liderada pelo Prof. Mestre Osvaldo Queta. Conformidade com LBI nº 13.146/2015.">
+    <meta name="keywords" content="Libras, Acessibilidade B2B, Tradução Libras, Intérprete de Libras, LBI 13146, Central de Libras, Osvaldo Queta, Inclusão Corporativa">
+    <meta name="author" content="Fox Store BR / Fox Libras - CNPJ 66.550.293/0001-99">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://libras.foxstorebr.com/">
+    <meta property="og:title" content="FOX LIBRAS | Acessibilidade Corporativa & Soluções em LIBRAS">
+    <meta property="og:description" content="Torne sua empresa 100% acessível e em conformidade com a LBI com suporte técnico, central on-demand e intérpretes mestres em educação.">
+    <meta property="og:image" content="assets/images/video-poster.jpg">
+
+    <!-- Favicon Data-URI (Hand + Signal Wave SVG) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%230EA5E9'/%3E%3Cstop offset='100%25' stop-color='%230284C7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230B132B'/%3E%3Cpath d='M30 65 V38 C30 34 35 34 35 38 V50 M35 38 V28 C35 24 40 24 40 28 V50 M40 28 V24 C40 20 45 20 45 24 V50 M45 28 V32 C45 28 50 28 50 32 V55 L45 70 C40 76 30 76 25 70 L20 60 C18 56 22 53 25 56 Z' fill='none' stroke='url(%23grad)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M65 30 A 20 20 0 0 1 65 70' fill='none' stroke='%230EA5E9' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M75 20 A 32 32 0 0 1 75 80' fill='none' stroke='%230284C7' stroke-width='4' stroke-linecap='round' opacity='0.8'/%3E%3Ccircle cx='42' cy='82' r='3' fill='%230EA5E9'/%3E%3C/svg%3E">
+
+    <!-- Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#080E1E',
+                            card: '#0F172A',
+                            accent: '#0EA5E9',
+                            slate: '#1E293B',
+                            dark: '#0B132B',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous"></script>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #080E1E;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E293B;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0EA5E9;
+        }
+        .corporate-card {
+            background-color: #0F172A;
+            border: 1px solid #1E293B;
+        }
+        .corporate-card:hover {
+            border-color: rgba(14, 165, 233, 0.4);
+        }
+        /* Override Posicionamento do Widget VLibras para Evitar Colisão */
+        [vw-access-button] {
+            right: 0px !important;
+            top: 45% !important;
+            z-index: 30 !important;
+            transform: translateY(-50%) !important;
+        }
+        [vw-plugin-wrapper] {
+            z-index: 35 !important;
+        }
+    </style>
+</head>
+<body class="bg-[#080E1E] text-slate-100 font-sans antialiased selection:bg-sky-500 selection:text-white min-h-screen flex flex-col justify-between overflow-x-hidden">
+
+    <!-- Top Announcement Bar (Compact Corporate) -->
+    <div class="bg-[#0B132B] text-xs py-1.5 px-4 text-center border-b border-slate-800 flex items-center justify-center gap-2">
+        <span class="bg-sky-500/10 text-sky-400 font-semibold px-2.5 py-0.5 rounded-md border border-sky-500/20 flex items-center gap-1.5 whitespace-nowrap">
+            <span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
+            LBI Compliant
+        </span>
+        <span class="text-slate-300">Adequação às exigências da Lei nº 13.146/2015 para empresas, governos e universidades.</span>
+        <a href="#calculadora" class="underline text-sky-400 hover:text-sky-300 font-medium ml-2 hidden sm:inline whitespace-nowrap">Simule seu Plano &rarr;</a>
+    </div>
+
+    <!-- HEADER & NAVBAR CORPORATIVA (SINGLE-LINE NAV) -->
+    <header class="sticky top-0 z-50 bg-[#0B132B]/95 backdrop-blur-sm border-b border-slate-800 transition-all duration-300 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4 sm:gap-6">
+            
+            <!-- Brand Logo SVG -->
+            <a href="#" class="flex items-center gap-3 group shrink-0" aria-label="FOX LIBRAS Página Inicial">
+                <div class="w-11 h-11 rounded-xl bg-[#0F172A] border border-slate-700/80 p-2 flex items-center justify-center group-hover:border-sky-500/60 transition-all duration-300 shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-full">
+                        <defs>
+                            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#0EA5E9" />
+                                <stop offset="100%" stop-color="#0284C7" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M30 65 V38 C30 34 35 34 35 38 V50 M35 38 V28 C35 24 40 24 40 28 V50 M40 28 V24 C40 20 45 20 45 24 V50 M45 28 V32 C45 28 50 28 50 32 V55 L45 70 C40 76 30 76 25 70 L20 60 C18 56 22 53 25 56 Z" fill="none" stroke="url(#logoGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M65 30 A 20 20 0 0 1 65 70" fill="none" stroke="#0EA5E9" stroke-width="4" stroke-linecap="round" />
+                        <path d="M75 20 A 32 32 0 0 1 75 80" fill="none" stroke="#0284C7" stroke-width="4" stroke-linecap="round" opacity="0.8" />
+                        <circle cx="42" cy="82" r="3" fill="#0EA5E9" />
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-xl font-extrabold tracking-tight text-white">FOX</span>
+                        <span class="text-xl font-extrabold tracking-tight text-sky-400">LIBRAS</span>
+                    </div>
+                    <span class="text-[10px] uppercase tracking-widest text-slate-400 font-semibold -mt-1">Soluções em Acessibilidade</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation (Enxuta com Palavras Únicas e Zero Quebra) -->
+            <nav class="hidden md:flex items-center gap-5 lg:gap-7 text-sm font-medium text-slate-300">
+                <a href="#inicio" class="whitespace-nowrap hover:text-sky-400 transition-colors">Início</a>
+                <a href="#servicos" class="whitespace-nowrap hover:text-sky-400 transition-colors">Serviços</a>
+                <a href="#demonstracao" class="whitespace-nowrap hover:text-sky-400 transition-colors">Demonstração</a>
+                <a href="#portfolio" class="whitespace-nowrap hover:text-sky-400 transition-colors">Portfólio</a>
+                <a href="#quem-somos" class="whitespace-nowrap hover:text-sky-400 transition-colors">Sobre</a>
+                <a href="#calculadora" class="whitespace-nowrap hover:text-sky-400 transition-colors">Simulador</a>
+                <a href="#contato" class="whitespace-nowrap hover:text-sky-400 transition-colors">Contato</a>
+            </nav>
+
+            <!-- CTA Button Desktop Highlighted Pill -->
+            <div class="hidden md:flex items-center shrink-0">
+                <button onclick="triggerLeadOrWhatsApp()" class="whitespace-nowrap shrink-0 px-5 py-2.5 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-sm transition-all duration-200 shadow-md flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
+                    <span>Solicitar Proposta</span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobileMenuBtn" aria-label="Abrir Menu Principal" class="md:hidden text-slate-300 hover:text-white p-2 text-xl focus:outline-none shrink-0">
+                <i class="fa-solid fa-bars" id="menuIcon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-[#0B132B] border-t border-slate-800 px-6 py-6 space-y-4">
+            <a href="#inicio" class="mobile-link block text-base font-medium text-slate-200 hover:text-sky-400">Início</a>
+            <a href="#servicos" class="mobile-link block text-base font-medium text-slate-200 hover:text-sky-400">Serviços B2B</a>
+            <a href="#demonstracao" class="mobile-link block text-base font-medium text-slate-200 hover:text-sky-400">Demonstração On-Demand</a>
+            <a href="#portfolio" class="mobile-link block text-base font-medium text-slate-200 hover:text-sky-400">Portfólio Prático</a>
+            <a href="#quem-somos" class="mobile-link block text-base font-medium text-slate-200 hover:text-sky-400">Sobre</a>
+            <a href="#calculadora" class="mobile-link block text-base font-medium text-slate-200 hover:text-sky-400">Simulador de Investimento</a>
+            <a href="#contato" class="mobile-link block text-base font-medium text-slate-200 hover:text-sky-400">Contato</a>
+            <div class="pt-4 border-t border-slate-800">
+                <button onclick="triggerLeadOrWhatsApp()" class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 font-bold text-white shadow-md">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    Falar com Intérprete Agora
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (COM IMAGEM REAL FULL-WIDTH E OVERLAY DE ALTO CONTRASTE WCAG AAA) -->
+    <section id="inicio" class="relative w-full py-20 md:py-28 bg-[linear-gradient(to_bottom,rgba(8,14,30,0.88),rgba(15,23,42,0.95)),url('assets/images/libras_pessoas_se_comunicam.jpg')] bg-cover bg-center bg-no-repeat overflow-hidden border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Copy & CTAs -->
+                <div class="lg:col-span-7 space-y-8 text-left">
+                    
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0F172A] border border-slate-700/80 text-xs font-medium text-sky-400">
+                        <i class="fa-solid fa-shield-halved text-sky-400"></i>
+                        <span>Liderança Técnica & Know-How Educacional Especializado</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Transforme sua Empresa em um Ambiente <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500">100% Acessível</span> em LIBRAS.
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl">
+                        Tradução simultânea, central de atendimento em Libras on-demand, acessibilidade web e consultoria corporativa liderada por especialistas bilíngues e mestres em educação.
+                    </p>
+
+                    <!-- Trust Badges Bar -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 py-2">
+                        <div class="p-4 rounded-xl bg-[#0F172A] border border-slate-800 flex items-center gap-3">
+                            <i class="fa-solid fa-award text-sky-400 text-xl"></i>
+                            <div>
+                                <div class="text-xs font-bold text-white">20+ Anos</div>
+                                <div class="text-[10px] text-slate-400">Experiência Real</div>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-[#0F172A] border border-slate-800 flex items-center gap-3">
+                            <i class="fa-solid fa-scale-balanced text-sky-400 text-xl"></i>
+                            <div>
+                                <div class="text-xs font-bold text-white">LBI Compliant</div>
+                                <div class="text-[10px] text-slate-400">Lei nº 13.146/15</div>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-[#0F172A] border border-slate-800 flex items-center gap-3">
+                            <i class="fa-solid fa-globe text-sky-400 text-xl"></i>
+                            <div>
+                                <div class="text-xs font-bold text-white">Presencial & Online</div>
+                                <div class="text-[10px] text-slate-400">Todo o Brasil</div>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-[#0F172A] border border-slate-800 flex items-center gap-3">
+                            <i class="fa-solid fa-shield-halved text-emerald-400 text-xl"></i>
+                            <div>
+                                <div class="text-xs font-bold text-white">CNPJ Homologado</div>
+                                <div class="text-[10px] text-slate-400">66.550.293/0001-99</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero CTAs -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                        <button onclick="triggerLeadOrWhatsApp()" class="px-7 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow-lg flex items-center justify-center gap-3 transition-all duration-200 hover:scale-[1.01]">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Falar com Intérprete no WhatsApp</span>
+                        </button>
+                        <a href="#servicos" class="px-7 py-4 bg-[#0F172A] hover:bg-slate-800 text-slate-200 font-semibold rounded-xl border border-slate-700 flex items-center justify-center gap-2 transition-all duration-200">
+                            <span>Conhecer Soluções B2B</span>
+                            <i class="fa-solid fa-arrow-right text-sky-400"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Hero Corporate Card -->
+                <div class="lg:col-span-5">
+                    <div class="relative bg-[#0F172A] rounded-2xl p-6 sm:p-8 space-y-6 border border-slate-800 shadow-2xl">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+                                <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Central de Libras Online</span>
+                            </div>
+                            <span class="text-xs text-slate-400 font-mono">Status: Ativo 24/7</span>
+                        </div>
+
+                        <div class="relative rounded-xl overflow-hidden aspect-video bg-slate-950 border border-slate-800 group/video flex flex-col justify-end p-4">
+                            <img src="assets/images/video-poster.jpg" fetchpriority="high" loading="eager" alt="Interpretação de Libras em Tempo Real" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover/video:scale-105 transition-transform duration-500">
+                            
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+
+                            <div class="relative z-10 space-y-2">
+                                <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#0B132B] border border-slate-700 text-[11px] text-sky-300 font-medium">
+                                    <i class="fa-solid fa-video text-xs"></i>
+                                    <span>Videochamada de Atendimento Bilíngue</span>
+                                </div>
+                                <h2 class="text-sm font-bold text-white">Atendimento Humanizado ao Cliente Surdo</h2>
+                                <p class="text-xs text-slate-300">Integração sem atrito via WebRTC com SAC e canais corporativos.</p>
+                            </div>
+
+                            <a href="#demonstracao" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-sky-500 text-slate-950 flex items-center justify-center shadow-lg hover:bg-sky-400 transition-all duration-200">
+                                <i class="fa-solid fa-play text-lg ml-1"></i>
+                            </a>
+                        </div>
+
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3 text-xs text-slate-300">
+                                <i class="fa-solid fa-check-circle text-sky-400 text-sm"></i>
+                                <span>Zero barreira de comunicação para clientes e colaboradores surdos</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-slate-300">
+                                <i class="fa-solid fa-check-circle text-sky-400 text-sm"></i>
+                                <span>Emissão de relatórios e métricas de acessibilidade</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-slate-300">
+                                <i class="fa-solid fa-check-circle text-sky-400 text-sm"></i>
+                                <span>Projetos liderados pelo Prof. Mestre Osvaldo Queta</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS & SOLUÇÕES B2B -->
+    <section id="servicos" class="relative w-full py-24 bg-[#0F172A] border-b border-slate-800 overflow-hidden">
+        <!-- Detalhe Gráfico Marca D'água Libras-Mãos -->
+        <div class="absolute right-0 bottom-0 opacity-[0.05] pointer-events-none max-w-[260px] sm:max-w-[320px] overflow-hidden filter grayscale invert">
+            <img src="assets/images/libras-maos.png" alt="" class="w-full h-auto">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 relative z-10">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Soluções Corporativas de Alta Performance</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Serviços Especializados em LIBRAS & Acessibilidade</h2>
+                <p class="text-slate-400 text-base">
+                    Projetados para atender às especificidades de empresas privadas, órgãos públicos, redes hospitalares e universidades.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-[#080E1E] rounded-2xl p-8 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-[#0F172A] border border-slate-700 text-sky-400 flex items-center justify-center text-2xl group-hover:bg-sky-600 group-hover:text-white transition-all duration-200">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">Central de Atendimento em LIBRAS (On-Demand)</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Intermediação em tempo real por videochamada para SAC, lojas físicas, bancos, clínicas e portais de atendimento. Garantia de comunicação imediata e humanizada.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-800">
+                        <button onclick="triggerLeadOrWhatsApp('Central de Atendimento Libras On-Demand')" class="text-sm font-semibold text-sky-400 hover:text-sky-300 flex items-center gap-2">
+                            <span>Solicitar Demonstração</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-[#080E1E] rounded-2xl p-8 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-[#0F172A] border border-slate-700 text-sky-400 flex items-center justify-center text-2xl group-hover:bg-sky-600 group-hover:text-white transition-all duration-200">
+                            <i class="fa-solid fa-tower-broadcast"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">Interpretação de Eventos & Transmissões</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Cobertura presencial e remota com janela de Libras para congressos, webinars, lives, palestras, convenções e reuniões de conselho corporativo.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-800">
+                        <button onclick="triggerLeadOrWhatsApp('Interpretação de Eventos & Transmissões')" class="text-sm font-semibold text-sky-400 hover:text-sky-300 flex items-center gap-2">
+                            <span>Cotar para Evento</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-[#080E1E] rounded-2xl p-8 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-[#0F172A] border border-slate-700 text-sky-400 flex items-center justify-center text-2xl group-hover:bg-sky-600 group-hover:text-white transition-all duration-200">
+                            <i class="fa-solid fa-closed-captioning"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">Tradução & Legendagem de Conteúdos</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Inserção de janela de Libras e legendas descritivas em vídeos institucionais, cursos EAD, treinamentos corporativos, peças publicitárias e sites.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-800">
+                        <button onclick="triggerLeadOrWhatsApp('Tradução & Legendagem de Vídeos')" class="text-sm font-semibold text-sky-400 hover:text-sky-300 flex items-center gap-2">
+                            <span>Enviar Materiais</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-[#080E1E] rounded-2xl p-8 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-[#0F172A] border border-slate-700 text-sky-400 flex items-center justify-center text-2xl group-hover:bg-sky-600 group-hover:text-white transition-all duration-200">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">Consultoria & Treinamento Empresarial</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Capacitação de equipes de RH, atendimento e liderança para o acolhimento inclusivo e aprendizado de Libras corporativo no ambiente de trabalho.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-800">
+                        <button onclick="triggerLeadOrWhatsApp('Consultoria & Treinamento RH')" class="text-sm font-semibold text-sky-400 hover:text-sky-300 flex items-center gap-2">
+                            <span>Agendar Consultoria</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-[#080E1E] rounded-2xl p-8 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 flex flex-col justify-between group md:col-span-2 lg:col-span-2">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+                        <div class="space-y-4">
+                            <div class="w-14 h-14 rounded-2xl bg-[#0F172A] border border-slate-700 text-sky-400 flex items-center justify-center text-2xl group-hover:bg-sky-600 group-hover:text-white transition-all duration-200">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">Acessibilidade para Instituições de Ensino</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Suporte acadêmico especializado para escolas, faculdades e universidades (graduação e pós). Tradução de aulas, exames, bancas e materiais didáticos adaptados.
+                            </p>
+                        </div>
+                        <div class="space-y-3 bg-[#0F172A] p-5 rounded-xl border border-slate-800">
+                            <div class="text-xs font-bold text-sky-400 uppercase tracking-wider">Benefícios Acadêmicos</div>
+                            <div class="text-xs text-slate-300 flex items-center gap-2"><i class="fa-solid fa-check text-sky-400"></i> Conformidade com o MEC & LBI</div>
+                            <div class="text-xs text-slate-300 flex items-center gap-2"><i class="fa-solid fa-check text-sky-400"></i> Intérpretes com vivência em disciplinas técnicas</div>
+                            <div class="text-xs text-slate-300 flex items-center gap-2"><i class="fa-solid fa-check text-sky-400"></i> Plataforma de solicitação simplificada</div>
+                        </div>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-800 flex justify-between items-center">
+                        <span class="text-xs text-slate-400">Atendimento integral para ensino presencial e EAD</span>
+                        <button onclick="triggerLeadOrWhatsApp('Acessibilidade Educacional')" class="text-sm font-semibold text-sky-400 hover:text-sky-300 flex items-center gap-2">
+                            <span>Solicitar Proposta Educacional</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA DE DEMONSTRAÇÃO DE SERVIÇOS (NAVY ENTERPRISE) -->
+    <section id="galeria-servicos" class="py-24 bg-[#080E1E] border-b border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Demonstração Prática & Autoridade</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Vídeos Reais de Atuação e Prestação de Serviços em LIBRAS</h2>
+                <p class="text-slate-400 text-base">
+                    Conheça a nossa metodologia e acompanhe na prática os serviços de tradução simultânea, intérprete on-demand e acessibilidade educacional oferecidos para clientes corporativos.
+                </p>
+            </div>
+
+            <!-- Grid Responsivo de Cards de Vídeo -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Central de Atendimento / SAC Web -->
+                <div class="bg-[#0F172A] rounded-2xl overflow-hidden border border-slate-800 hover:border-sky-500/40 shadow-lg transition-all duration-300 group flex flex-col justify-between">
+                    <div class="relative bg-slate-950 aspect-video overflow-hidden">
+                        <video src="assets/videos/demonstracao-sac-libras.mp4" type="video/mp4" poster="assets/images/video-poster.jpg" class="w-full h-full aspect-video object-cover" controls playsinline preload="metadata"></video>
+                    </div>
+                    <div class="p-5 bg-[#0F172A] space-y-2 border-t border-slate-800">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-0.5 rounded-full bg-[#0B132B] text-sky-300 text-[10px] font-semibold border border-slate-700">SAC Web</span>
+                            <span class="text-[10px] text-slate-400 font-mono">On-Demand</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white group-hover:text-sky-400 transition-colors">Central de Atendimento / SAC Web</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">Atendimento SAC em Libras - Tradução Simultânea e Intermediação em Tempo Real.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Interpretação de Eventos e Palestras -->
+                <div class="bg-[#0F172A] rounded-2xl overflow-hidden border border-slate-800 hover:border-sky-500/40 shadow-lg transition-all duration-300 group flex flex-col justify-between">
+                    <div class="relative bg-slate-950 aspect-video overflow-hidden">
+                        <video src="assets/videos/demonstracao-evento.mp4" type="video/mp4" poster="assets/images/video-poster.jpg" class="w-full h-full aspect-video object-cover" controls playsinline preload="metadata"></video>
+                    </div>
+                    <div class="p-5 bg-[#0F172A] space-y-2 border-t border-slate-800">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-0.5 rounded-full bg-[#0B132B] text-sky-300 text-[10px] font-semibold border border-slate-700">Eventos & Lives</span>
+                            <span class="text-[10px] text-slate-400 font-mono">Full HD</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white group-hover:text-sky-400 transition-colors">Interpretação de Eventos e Palestras</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">Tradução Simultânea para Live Streaming, Webinars, Lives e Convenções Corporativas.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Tradução para Cursos EAD e Treinamentos -->
+                <div class="bg-[#0F172A] rounded-2xl overflow-hidden border border-slate-800 hover:border-sky-500/40 shadow-lg transition-all duration-300 group flex flex-col justify-between">
+                    <div class="relative bg-slate-950 aspect-video overflow-hidden">
+                        <video src="assets/videos/demonstracao-ead.mp4" type="video/mp4" poster="assets/images/video-poster.jpg" class="w-full h-full aspect-video object-cover" controls playsinline preload="metadata"></video>
+                    </div>
+                    <div class="p-5 bg-[#0F172A] space-y-2 border-t border-slate-800">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-0.5 rounded-full bg-[#0B132B] text-sky-300 text-[10px] font-semibold border border-slate-700">Cursos EAD</span>
+                            <span class="text-[10px] text-slate-400 font-mono">Legendagem</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white group-hover:text-sky-400 transition-colors">Tradução para Cursos EAD e Treinamentos</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">Janela de Libras e Adaptação Pedagógica de Conteúdos Digitais e EAD.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4: Acessibilidade Corporativa na Prática — SAC -->
+                <div class="bg-[#0F172A] rounded-2xl overflow-hidden border border-slate-800 hover:border-sky-500/40 shadow-lg transition-all duration-300 group flex flex-col justify-between">
+                    <div class="relative bg-slate-950 aspect-video overflow-hidden">
+                        <video src="assets/videos/20250905_083324.mp4" type="video/mp4" poster="assets/images/video-poster.jpg" class="w-full h-full aspect-video object-cover" controls playsinline preload="metadata"></video>
+                    </div>
+                    <div class="p-5 bg-[#0F172A] space-y-2 border-t border-slate-800">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-0.5 rounded-full bg-[#0B132B] text-emerald-300 text-[10px] font-semibold border border-slate-700">Prática Real</span>
+                            <span class="text-[10px] text-slate-400 font-mono">Atendimento</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white group-hover:text-emerald-400 transition-colors">Acessibilidade Corporativa na Prática — SAC</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">Atendimento Humanizado ao Cliente Surdo sem Barreiras de Comunicação.</p>
+                    </div>
+                </div>
+
+                <!-- Card 5: Acessibilidade Corporativa na Prática — Treinamentos -->
+                <div class="bg-[#0F172A] rounded-2xl overflow-hidden border border-slate-800 hover:border-sky-500/40 shadow-lg transition-all duration-300 group flex flex-col justify-between md:col-span-2 lg:col-span-2">
+                    <div class="relative bg-slate-950 aspect-video overflow-hidden">
+                        <video src="assets/videos/20260519_160642.mp4" type="video/mp4" poster="assets/images/video-poster.jpg" class="w-full h-full aspect-video object-cover" controls playsinline preload="metadata"></video>
+                    </div>
+                    <div class="p-5 bg-[#0F172A] space-y-2 border-t border-slate-800">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-0.5 rounded-full bg-[#0B132B] text-sky-300 text-[10px] font-semibold border border-slate-700">Treinamentos RH</span>
+                            <span class="text-[10px] text-slate-400 font-mono">Capacitação</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white group-hover:text-sky-400 transition-colors">Acessibilidade Corporativa na Prática — Treinamentos</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">Capacitação Institucional e Acompanhamento Técnico Bilíngue para Equipes.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DEMONSTRAÇÃO & VÍDEO SHOWCASE -->
+    <section id="demonstracao" class="py-24 bg-[#0F172A] border-b border-slate-800 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Demonstração Interativa</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+                        Central de Atendimento Libras em Tempo Real
+                    </h2>
+                    <p class="text-slate-300 text-base leading-relaxed">
+                        Veja em vídeo as soluções práticas de tradução simultânea, intérprete em janela corporativa e suporte EAD oferecidas pela FOX LIBRAS.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="p-4 rounded-xl bg-[#080E1E] border border-slate-800 flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center shrink-0 text-lg font-bold">1</div>
+                            <div>
+                                <h3 class="text-sm font-bold text-white">Conexão Instantânea</h3>
+                                <p class="text-xs text-slate-400">Sem necessidade de instalação de plugins pesados no dispositivo do cliente.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-[#080E1E] border border-slate-800 flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center shrink-0 text-lg font-bold">2</div>
+                            <div>
+                                <h3 class="text-sm font-bold text-white">Intérprete Humano Certificado</h3>
+                                <p class="text-xs text-slate-400">Tradução precisa, respeitando a gramática e os aspectos culturais da Libras.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-[#080E1E] border border-slate-800 flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center shrink-0 text-lg font-bold">3</div>
+                            <div>
+                                <h3 class="text-sm font-bold text-white">Segurança e Criptografia</h3>
+                                <p class="text-xs text-slate-400">Sessões seguras HTTPS/WebRTC com garantia de sigilo profissional.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="bg-[#080E1E] rounded-3xl p-4 sm:p-6 space-y-4 shadow-2xl border border-slate-800">
+                        <div id="videoContainer" class="relative rounded-2xl overflow-hidden bg-slate-950 aspect-video border border-slate-800 flex items-center justify-center group">
+                            <video id="librasDemoVideo" controls playsinline preload="metadata" poster="assets/images/video-poster.jpg" class="w-full h-full object-cover">
+                                <source src="assets/videos/demonstracao-sac-libras.mp4" type="video/mp4">
+                                Seu navegador não suporta reprodução de vídeos HTML5.
+                            </video>
+
+                            <div id="videoOverlay" class="absolute inset-0 bg-slate-950/70 flex flex-col items-center justify-center text-center p-6 space-y-4 transition-opacity duration-300">
+                                <div class="w-20 h-20 rounded-full bg-sky-600 text-white flex items-center justify-center text-3xl shadow-lg hover:bg-sky-500 transition-all cursor-pointer" onclick="playDemoVideo()">
+                                    <i class="fa-solid fa-play ml-1"></i>
+                                </div>
+                                <div class="space-y-1">
+                                    <h4 id="videoTitleDisplay" class="text-lg font-bold text-white">Demonstração: Central de Atendimento SAC</h4>
+                                    <p class="text-xs text-slate-300">Clique para reproduzir o vídeo de demonstração em LIBRAS.</p>
+                                </div>
+                                <div class="flex items-center gap-2 text-[11px] text-sky-400 bg-[#0F172A] px-3 py-1 rounded-full border border-slate-700">
+                                    <i class="fa-solid fa-film"></i>
+                                    <span id="videoPathDisplay">assets/videos/demonstracao-sac-libras.mp4</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-3">
+                            <button id="btnTabSac" onclick="changeDemoVideo('sac', this)" class="video-select-btn active p-3 rounded-xl bg-[#0F172A] border border-sky-500/60 text-left transition-all">
+                                <div class="text-xs font-bold text-sky-400">Atendimento SAC</div>
+                                <div class="text-[10px] text-slate-400">Central On-Demand</div>
+                            </button>
+                            <button id="btnTabEvento" onclick="changeDemoVideo('eventos', this)" class="video-select-btn p-3 rounded-xl bg-[#0F172A] border border-slate-800 text-left transition-all hover:border-slate-700">
+                                <div class="text-xs font-bold text-white">Evento ao Vivo</div>
+                                <div class="text-[10px] text-slate-400">Janela de Libras</div>
+                            </button>
+                            <button id="btnTabEad" onclick="changeDemoVideo('ead', this)" class="video-select-btn p-3 rounded-xl bg-[#0F172A] border border-slate-800 text-left transition-all hover:border-slate-700">
+                                <div class="text-xs font-bold text-white">Curso EAD</div>
+                                <div class="text-[10px] text-slate-400">Legendagem & Libras</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO GALERIA DE BASTIDORES & PROVA SOCIAL PRÁTICA (PORTFÓLIO) -->
+    <div id="portfolio" class="scroll-mt-20"></div>
+    <section id="bastidores" class="py-24 bg-[#080E1E] border-b border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Prova Social & Metodologia</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Atuação Prática e Metodologia em Ação</h2>
+                <p class="text-slate-400 text-base">
+                    Confira nossos bastidores de gravação em estúdio profissional, transmissões oficiais e a evolução real de nossas alunas.
+                </p>
+            </div>
+
+            <!-- Tab Buttons Selector -->
+            <div class="flex justify-center border-b border-slate-800">
+                <div class="flex gap-4 p-1.5 bg-[#0F172A] rounded-xl border border-slate-800">
+                    <button onclick="switchGalleryTab('estudio', this)" class="gallery-tab-btn active px-5 py-2.5 rounded-lg text-xs font-bold transition-all bg-sky-600 text-white shadow-md">
+                        <i class="fa-solid fa-camera border-r border-slate-600 pr-2 mr-1"></i> Bastidores de Tradução & Estúdio
+                    </button>
+                    <button onclick="switchGalleryTab('alunas', this)" class="gallery-tab-btn px-5 py-2.5 rounded-lg text-xs font-bold text-slate-400 hover:text-white transition-all">
+                        <i class="fa-solid fa-graduation-cap border-r border-slate-700 pr-2 mr-1"></i> Resultados do Ensino Prático
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab 1 Content: Studio Photos Grid -->
+            <div id="tabGalleryEstudio" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Foto 1 -->
+                    <div onclick="openLightbox('assets/images/IMG-20260519-WA0025.jpg', 'Atuação em Estúdio - Tradução de Conteúdo Institucional')" class="bg-[#0F172A] rounded-2xl overflow-hidden group cursor-pointer border border-slate-800 hover:border-sky-500/40 transition-all duration-300">
+                        <div class="relative aspect-video overflow-hidden bg-slate-950">
+                            <img src="assets/images/IMG-20260519-WA0025.jpg" loading="lazy" alt="Atuação em Estúdio - Tradução de Conteúdo Institucional" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <span class="w-12 h-12 rounded-full bg-sky-500 text-slate-950 flex items-center justify-center shadow-lg"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                            </div>
+                        </div>
+                        <div class="p-4 space-y-1">
+                            <h4 class="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Atuação em Estúdio</h4>
+                            <p class="text-xs text-slate-400">Tradução de Conteúdo Institucional & Governamental</p>
+                        </div>
+                    </div>
+
+                    <!-- Foto 2 -->
+                    <div onclick="openLightbox('assets/images/IMG-20260519-WA0023.jpg', 'Gravação e Interpretação ao Vivo')" class="bg-[#0F172A] rounded-2xl overflow-hidden group cursor-pointer border border-slate-800 hover:border-sky-500/40 transition-all duration-300">
+                        <div class="relative aspect-video overflow-hidden bg-slate-950">
+                            <img src="assets/images/IMG-20260519-WA0023.jpg" loading="lazy" alt="Gravação e Interpretação ao Vivo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <span class="w-12 h-12 rounded-full bg-sky-500 text-slate-950 flex items-center justify-center shadow-lg"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                            </div>
+                        </div>
+                        <div class="p-4 space-y-1">
+                            <h4 class="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Gravação Profissional</h4>
+                            <p class="text-xs text-slate-400">Interpretação e Enquadramento Técnico ao Vivo</p>
+                        </div>
+                    </div>
+
+                    <!-- Foto 3 -->
+                    <div onclick="openLightbox('assets/images/IMG-20260519-WA0026.jpg', 'Acessibilidade e Transmissão Oficial')" class="bg-[#0F172A] rounded-2xl overflow-hidden group cursor-pointer border border-slate-800 hover:border-sky-500/40 transition-all duration-300">
+                        <div class="relative aspect-video overflow-hidden bg-slate-950">
+                            <img src="assets/images/IMG-20260519-WA0026.jpg" loading="lazy" alt="Acessibilidade e Transmissão Oficial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <span class="w-12 h-12 rounded-full bg-sky-500 text-slate-950 flex items-center justify-center shadow-lg"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                            </div>
+                        </div>
+                        <div class="p-4 space-y-1">
+                            <h4 class="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">Transmissão Oficial</h4>
+                            <p class="text-xs text-slate-400">Janela de Libras para Câmaras e Transmissões Públicas</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Tab 2 Content: Student Practice Video Card -->
+            <div id="tabGalleryAlunas" class="hidden space-y-6">
+                <div class="bg-[#0F172A] rounded-3xl p-6 sm:p-8 border border-slate-800 max-w-4xl mx-auto shadow-2xl space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                        <div class="md:col-span-7">
+                            <div class="relative rounded-2xl overflow-hidden bg-slate-950 aspect-video border border-slate-800">
+                                <video controls playsinline preload="metadata" poster="assets/images/video-poster.jpg" class="w-full h-full object-cover">
+                                    <source src="assets/videos/65cf1137395f4bbca99ea87541ea65a1.mp4" type="video/mp4">
+                                    <source src="assets/videos/65cf1137395f4bbca99ea87541ea65a1.mov" type="video/quicktime">
+                                    Seu navegador não suporta reprodução de vídeo HTML5.
+                                </video>
+                            </div>
+                        </div>
+                        <div class="md:col-span-5 space-y-4">
+                            <span class="px-3 py-1 rounded-full bg-[#0B132B] text-sky-300 text-[11px] font-semibold border border-slate-700 inline-block">Caso de Sucesso Acadêmico</span>
+                            <h3 class="text-xl font-bold text-white">Prática de Alunas em Libras — Metodologia Aplicada</h3>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Demonstração real de alunas que iniciaram do zero e alcançaram comunicação fluida através da metodologia de ensino do Prof. Mestre Osvaldo Queta.
+                            </p>
+                            <div class="pt-2 text-xs text-sky-400 font-medium flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check"></i> Metodologia bilíngue com aplicação prática imediata
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- QUEM SOMOS / LIDERANÇA TÉCNICA (DESTAQUE DE CONSULTORIA SÊNIOR) -->
+    <section id="quem-somos" class="py-24 bg-[#0F172A] border-b border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-[#080E1E] rounded-3xl p-8 sm:p-12 border border-slate-800 shadow-2xl relative overflow-hidden">
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Profile Picture / Badge Box -->
+                    <div class="lg:col-span-4 flex flex-col items-center text-center">
+                        <div class="relative group">
+                            <div class="relative w-52 h-52 sm:w-60 sm:h-60 rounded-2xl overflow-hidden bg-slate-950 border-2 border-slate-700 flex items-center justify-center">
+                                <!-- Enquadramento Perfeito do Rosto (object-cover object-top) -->
+                                <img src="assets/images/osvaldo-queta-perfil.jpg" fetchpriority="high" loading="eager" alt="Prof. Mestre Osvaldo Queta - Especialista em LIBRAS" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                        </div>
+
+                        <div class="mt-6 space-y-1">
+                            <h3 class="text-xl font-bold text-white">Prof. Mestre Osvaldo Queta</h3>
+                            <p class="text-xs font-semibold text-sky-400">Especialista Principal & Desenvolvedor de Sistemas</p>
+                            <p class="text-xs text-slate-400">Juiz de Fora/MG & Atendimento Nacional</p>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-center gap-2">
+                            <span class="px-3 py-1 rounded-full bg-[#0F172A] text-[11px] text-slate-300 font-medium border border-slate-700">UFJF</span>
+                            <span class="px-3 py-1 rounded-full bg-[#0F172A] text-[11px] text-slate-300 font-medium border border-slate-700">IFTO</span>
+                            <span class="px-3 py-1 rounded-full bg-[#0F172A] text-[11px] text-slate-300 font-medium border border-slate-700">FUNIBER</span>
+                        </div>
+                    </div>
+
+                    <!-- Bio & Credentials breakdown -->
+                    <div class="lg:col-span-8 space-y-6">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Liderança Técnica & Autoridade Educacional</span>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">
+                                Experiência Comprovada em Tradução, Interpretação e Tecnologia em LIBRAS
+                            </h2>
+                        </div>
+
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            Com mais de <strong>20 anos de atuação contínua</strong> na educação inclusiva, tradução e interpretação de Libras, o Prof. Osvaldo Queta une a sensibilidade pedagógica ao mais alto rigor técnico em Tecnologia da Informação Corporativa e Desenvolvimento de Sistemas.
+                        </p>
+
+                        <!-- Highlights Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-4 rounded-xl bg-[#0F172A] border border-slate-800 space-y-1">
+                                <div class="text-xs font-bold text-sky-400 flex items-center gap-2">
+                                    <i class="fa-solid fa-graduation-cap"></i> Mestre em Educação
+                                </div>
+                                <p class="text-xs text-slate-300">FUNIBER — Pesquisa focada em processos inclusivos e metodologias bilíngues de aprendizagem.</p>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-[#0F172A] border border-slate-800 space-y-1">
+                                <div class="text-xs font-bold text-sky-400 flex items-center gap-2">
+                                    <i class="fa-solid fa-laptop-code"></i> MBA TI & Ciência de Dados
+                                </div>
+                                <p class="text-xs text-slate-300">Pós-Graduado em Análise e Dev de Sistemas, MBA em Gestão de TI e Data Science.</p>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-[#0F172A] border border-slate-800 space-y-1">
+                                <div class="text-xs font-bold text-sky-400 flex items-center gap-2">
+                                    <i class="fa-solid fa-building-columns"></i> Atuação Acadêmica
+                                </div>
+                                <p class="text-xs text-slate-300">Trajetória em grandes instituições públicas como a UFJF e o IFTO.</p>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-[#0F172A] border border-slate-800 space-y-1">
+                                <div class="text-xs font-bold text-emerald-400 flex items-center gap-2">
+                                    <i class="fa-solid fa-file-contract"></i> Homologação Jurídica
+                                </div>
+                                <p class="text-xs text-slate-300">Emissão de Notas e Contratos Corporativos via CNPJ: 66.550.293/0001-99.</p>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="pt-4 flex flex-wrap items-center gap-4">
+                            <a href="assets/pdf/Curriculo-Osvaldo-Queta-LIBRAS.pdf" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 bg-sky-600 hover:bg-sky-500 text-white text-sm font-semibold rounded-xl shadow-md flex items-center gap-2.5 transition-all">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                <span>Visualizar Currículo Resumido (PDF)</span>
+                            </a>
+                            <button onclick="openCvModal()" class="px-6 py-3.5 bg-[#0F172A] hover:bg-slate-800 text-slate-200 text-sm font-semibold rounded-xl border border-slate-700 flex items-center gap-2 transition-all">
+                                <i class="fa-solid fa-eye"></i>
+                                <span>Ver Resumo no Modal</span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALCULADORA INTERATIVA (SOBREADADE CORPORATIVA) -->
+    <section id="calculadora" class="relative w-full py-24 bg-[#080E1E] border-b border-slate-800 overflow-hidden">
+        <!-- Detalhe Gráfico Marca D'água Libras-Mãos -->
+        <div class="absolute left-0 top-0 opacity-[0.05] pointer-events-none max-w-[260px] sm:max-w-[320px] overflow-hidden filter grayscale invert">
+            <img src="assets/images/libras-maos.png" alt="" class="w-full h-auto">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 relative z-10">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Simulador de Investimento em Acessibilidade</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Calcule o Plano Ideal para sua Organização</h2>
+                <p class="text-slate-400 text-base">
+                    Valores base estimados para contratação corporativa. Simule abaixo e solicite uma proposta detalhada.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left: Form Controls -->
+                <div class="lg:col-span-7 bg-[#0F172A] rounded-3xl p-6 sm:p-8 space-y-6 border border-slate-800">
+                    <div class="space-y-3">
+                        <label for="calcService" class="block text-sm font-bold text-white flex items-center justify-between">
+                            <span>1. Selecione o Serviço Principal</span>
+                            <span class="text-xs font-normal text-sky-400">Passo 1 de 3</span>
+                        </label>
+                        <select id="calcService" onchange="calcularInvestimento()" class="w-full bg-[#080E1E] border border-slate-800 rounded-xl p-3.5 text-sm text-slate-200 focus:border-sky-500 focus:outline-none transition-all">
+                            <option value="instituicoes_ensino">Acessibilidade para Instituições de Ensino (R$ 80,00/h)</option>
+                            <option value="central_sac" selected>Central de Atendimento Libras On-Demand / SAC (R$ 95,00/h)</option>
+                            <option value="eventos_transmissoes">Interpretação em Eventos, Transmissões e Lives (R$ 180,00/h)</option>
+                            <option value="traducao_audiovisual">Tradução e Legendagem Audiovisual (R$ 120,00/h)</option>
+                            <option value="consultoria_rh">Consultoria e Treinamento de RH (R$ 220,00/h)</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-3 pt-2">
+                        <div class="flex justify-between items-center text-sm font-bold text-white">
+                            <label for="calcVolume" id="volumeLabel">2. Volume Estimado (Atendimentos/mês)</label>
+                            <span id="volumeValue" class="text-sky-400 font-mono text-base bg-[#080E1E] border border-slate-700 px-3 py-0.5 rounded-lg">50</span>
+                        </div>
+                        <input type="range" id="calcVolume" min="10" max="500" step="10" value="50" oninput="calcularInvestimento()" class="w-full accent-sky-500 bg-[#080E1E] h-2 rounded-lg cursor-pointer">
+                        <div class="flex justify-between text-[11px] text-slate-400 font-mono">
+                            <span id="minVolumeLabel">10</span>
+                            <span id="maxVolumeLabel">500</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 pt-2">
+                        <span class="block text-sm font-bold text-white">3. Nível de Suporte e Cobertura</span>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <label class="cursor-pointer">
+                                <input type="radio" name="calcTier" value="padrao" checked onchange="calcularInvestimento()" class="peer sr-only">
+                                <div class="p-3.5 rounded-xl bg-[#080E1E] border border-slate-800 text-center peer-checked:border-sky-500 peer-checked:bg-[#0B132B] transition-all">
+                                    <div class="text-xs font-bold text-white">Padrão</div>
+                                    <div class="text-[10px] text-slate-400 mt-1">Horário Comercial (1.0x)</div>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="calcTier" value="enterprise" onchange="calcularInvestimento()" class="peer sr-only">
+                                <div class="p-3.5 rounded-xl bg-[#080E1E] border border-slate-800 text-center peer-checked:border-sky-500 peer-checked:bg-[#0B132B] transition-all">
+                                    <div class="text-xs font-bold text-white">Enterprise</div>
+                                    <div class="text-[10px] text-slate-400 mt-1">Suporte 24/7 (1.35x)</div>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="calcTier" value="exclusivo" onchange="calcularInvestimento()" class="peer sr-only">
+                                <div class="p-3.5 rounded-xl bg-[#080E1E] border border-slate-800 text-center peer-checked:border-emerald-500 peer-checked:bg-emerald-950/20 transition-all">
+                                    <div class="text-xs font-bold text-white">Exclusivo</div>
+                                    <div class="text-[10px] text-slate-400 mt-1">Intérprete Dedicado (1.60x)</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Live Result Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-[#0F172A] rounded-3xl p-6 sm:p-8 space-y-6 border border-sky-500/30 shadow-2xl relative">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                            <span class="text-xs font-bold uppercase tracking-wider text-slate-300">Estimativa do Plano</span>
+                            <span class="px-2.5 py-0.5 rounded-full bg-emerald-950 text-emerald-400 text-[11px] font-semibold border border-emerald-500/30">Orçamento Parametrizado</span>
+                        </div>
+
+                        <div class="space-y-1">
+                            <div class="text-xs text-slate-400">Estimativa:</div>
+                            <div id="calcPrice" class="flex flex-wrap items-baseline gap-2 my-2">
+                                <span class="text-sm font-medium text-slate-400">a partir de</span>
+                                <span class="text-3xl sm:text-4xl font-bold text-sky-400 font-mono">R$ 4.750</span>
+                                <span class="text-xs text-slate-400">/mês</span>
+                            </div>
+                            <p class="text-[11px] text-slate-400 pt-2 leading-relaxed">
+                                Valor base estimado para contratação recorrente. Sujeito à análise de complexidade técnica e volume.
+                            </p>
+                        </div>
+
+                        <div class="space-y-3 pt-2 border-t border-slate-800 text-xs">
+                            <div class="flex justify-between text-slate-300">
+                                <span>Serviço Selecionado:</span>
+                                <span id="summaryService" class="font-bold text-white">Central Libras SAC Web</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300">
+                                <span>Valor Hora Base:</span>
+                                <span id="summaryHourlyRate" class="font-bold text-sky-400 font-mono">R$ 95,00/h</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300">
+                                <span>Volume Contratado:</span>
+                                <span id="summaryVolume" class="font-bold text-white">50 atendimentos/mês</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300">
+                                <span>Nível de Cobertura:</span>
+                                <span id="summaryTier" class="font-bold text-sky-400">Padrão (1.0x)</span>
+                            </div>
+                            <div class="flex justify-between text-slate-300">
+                                <span>Conformidade Legal:</span>
+                                <span class="font-bold text-emerald-400"><i class="fa-solid fa-shield"></i> LBI Nº 13.146</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 space-y-3">
+                            <button onclick="handleCalculatedWhatsAppLead()" class="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>Receber Proposta Formal no WhatsApp</span>
+                            </button>
+                            
+                            <a href="#contato" class="w-full py-3 bg-[#080E1E] hover:bg-slate-800 text-slate-300 text-xs font-semibold rounded-xl border border-slate-800 flex items-center justify-center gap-2 transition-all">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Enviar Estimativa por E-mail</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO CONTATO & FORMULÁRIO B2B -->
+    <section id="contato" class="py-24 bg-[#0F172A] border-b border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Contact Info Left -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-sky-400">Atendimento Comercial & Técnico</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Fale com Nossos Especialistas</h2>
+                        <p class="text-slate-300 text-sm sm:text-base mt-2">
+                            Estamos prontos para elaborar a solução ideal para a sua empresa ou instituição de ensino.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-[#080E1E] border border-slate-700 text-sky-400 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xs font-bold uppercase text-slate-400 tracking-wider">Telefones / WhatsApp Comercial</h3>
+                                <div class="text-sm font-semibold text-white mt-0.5">
+                                    <a href="https://wa.me/5563992581001" target="_blank" class="hover:text-sky-400 transition-colors">(63) 99258-1001</a>
+                                </div>
+                                <div class="text-sm font-semibold text-white">
+                                    <a href="https://wa.me/5561992428803" target="_blank" class="hover:text-sky-400 transition-colors">(61) 99242-8803</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-[#080E1E] border border-slate-700 text-sky-400 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xs font-bold uppercase text-slate-400 tracking-wider">E-mail Corporativo</h3>
+                                <div class="text-sm font-semibold text-white mt-0.5">
+                                    <a href="mailto:osvaldoqueta@gmail.com" class="hover:text-sky-400 transition-colors">osvaldoqueta@gmail.com</a>
+                                </div>
+                                <div class="text-xs text-slate-400">Resposta em até 2 horas úteis</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-[#080E1E] border border-slate-700 text-emerald-400 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xs font-bold uppercase text-slate-400 tracking-wider">Dados da Empresa & Base</h3>
+                                <div class="text-sm font-semibold text-white mt-0.5">Fox Store BR / Fox Libras</div>
+                                <div class="text-xs text-slate-300">CNPJ: 66.550.293/0001-99</div>
+                                <div class="text-xs text-slate-400">Base em Juiz de Fora/MG & Cobertura em todo o Brasil</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-[#080E1E] border border-slate-800 space-y-3">
+                        <div class="flex items-center gap-2 text-xs font-bold text-sky-400">
+                            <i class="fa-solid fa-bolt text-amber-400"></i>
+                            <span>Precisa de Atendimento Imediato?</span>
+                        </div>
+                        <p class="text-xs text-slate-300">
+                            Conecte-se diretamente com o Prof. Mestre Osvaldo Queta no WhatsApp sem intermediários.
+                        </p>
+                        <button onclick="triggerLeadOrWhatsApp()" class="inline-flex items-center gap-2 text-xs font-bold text-white underline hover:text-sky-400">
+                            <span>Iniciar Conversa Direta</span> &rarr;
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Contact Form Right -->
+                <div class="lg:col-span-7">
+                    <div class="bg-[#080E1E] rounded-3xl p-6 sm:p-10 border border-slate-800 shadow-2xl">
+                        <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label for="contactName" class="block text-xs font-bold uppercase text-slate-300">Seu Nome Completo *</label>
+                                    <input type="text" id="contactName" required placeholder="Ex: Roberto Silva" class="w-full bg-[#0F172A] border border-slate-800 rounded-xl p-3.5 text-sm text-slate-100 placeholder-slate-500 focus:border-sky-500 focus:outline-none transition-all">
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="contactEmail" class="block text-xs font-bold uppercase text-slate-300">E-mail Corporativo *</label>
+                                    <input type="email" id="contactEmail" required placeholder="roberto@empresa.com.br" class="w-full bg-[#0F172A] border border-slate-800 rounded-xl p-3.5 text-sm text-slate-100 placeholder-slate-500 focus:border-sky-500 focus:outline-none transition-all">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label for="contactPhone" class="block text-xs font-bold uppercase text-slate-300">Telefone / WhatsApp *</label>
+                                    <input type="tel" id="contactPhone" required placeholder="(11) 99999-9999" class="w-full bg-[#0F172A] border border-slate-800 rounded-xl p-3.5 text-sm text-slate-100 placeholder-slate-500 focus:border-sky-500 focus:outline-none transition-all">
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="contactCompany" class="block text-xs font-bold uppercase text-slate-300">Empresa / Instituição *</label>
+                                    <input type="text" id="contactCompany" required placeholder="Nome da sua empresa" class="w-full bg-[#0F172A] border border-slate-800 rounded-xl p-3.5 text-sm text-slate-100 placeholder-slate-500 focus:border-sky-500 focus:outline-none transition-all">
+                                </div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label for="contactInterest" class="block text-xs font-bold uppercase text-slate-300">Interesse Principal</label>
+                                <select id="contactInterest" class="w-full bg-[#0F172A] border border-slate-800 rounded-xl p-3.5 text-sm text-slate-100 focus:border-sky-500 focus:outline-none transition-all">
+                                    <option value="Central Libras On-Demand">Central de Atendimento Libras (SAC Web)</option>
+                                    <option value="Interpretação de Eventos">Interpretação de Eventos & Transmissões</option>
+                                    <option value="Tradução e Legendagem">Tradução e Legendagem de Vídeos/Cursos</option>
+                                    <option value="Consultoria e Treinamento">Consultoria e Treinamentos Empresariais</option>
+                                    <option value="Acessibilidade Educacional">Acessibilidade para Faculdade / Universidade</option>
+                                </select>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label for="contactMessage" class="block text-xs font-bold uppercase text-slate-300">Mensagem ou Detalhes da Proposta *</label>
+                                <textarea id="contactMessage" rows="4" required placeholder="Descreva brevemente a necessidade da sua organização..." class="w-full bg-[#0F172A] border border-slate-800 rounded-xl p-3.5 text-sm text-slate-100 placeholder-slate-500 focus:border-sky-500 focus:outline-none transition-all"></textarea>
+                            </div>
+
+                            <div id="contactStatus" class="hidden p-4 rounded-xl text-xs font-medium"></div>
+
+                            <button type="submit" class="w-full py-4 bg-sky-600 hover:bg-sky-500 text-white font-bold text-sm rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Enviar Mensagem & Solicitar Proposta</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CORPORATIVO -->
+    <footer class="bg-[#080E1E] border-t border-slate-800 text-slate-400 text-xs py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-slate-800">
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-[#0F172A] border border-slate-700 p-1.5 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-full">
+                                <path d="M30 65 V38 C30 34 35 34 35 38 V50 M35 38 V28 C35 24 40 24 40 28 V50 M40 28 V24 C40 20 45 20 45 24 V50 M45 28 V32 C45 28 50 28 50 32 V55 L45 70 C40 76 30 76 25 70 L20 60 C18 56 22 53 25 56 Z" fill="none" stroke="#0EA5E9" stroke-width="4" />
+                                <circle cx="42" cy="82" r="3" fill="#0284C7" />
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="text-base font-extrabold text-white tracking-tight">FOX LIBRAS</span>
+                            <span class="block text-[10px] text-sky-400 uppercase tracking-widest font-semibold">Soluções em Acessibilidade</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed text-xs max-w-md">
+                        Plataforma especializada em governança de acessibilidade em Libras para o setor B2B, governamental e educacional. Tecnologia de ponta aliada à expertise pedagógica bilíngue.
+                    </p>
+                    <div class="text-[11px] text-slate-300 font-mono">
+                        CNPJ: 66.550.293/0001-99 | Fox Store BR / Fox Libras
+                    </div>
+                </div>
+
+                <div class="md:col-span-3 space-y-3">
+                    <h3 class="text-xs font-bold uppercase text-white tracking-wider">Navegação Rápida</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="hover:text-sky-400 transition-colors">Início</a></li>
+                        <li><a href="#servicos" class="hover:text-sky-400 transition-colors">Serviços B2B</a></li>
+                        <li><a href="#galeria-servicos" class="hover:text-sky-400 transition-colors">Vídeos Práticos</a></li>
+                        <li><a href="#demonstracao" class="hover:text-sky-400 transition-colors">Central On-Demand</a></li>
+                        <li><a href="#bastidores" class="hover:text-sky-400 transition-colors">Atuação Prática</a></li>
+                        <li><a href="#quem-somos" class="hover:text-sky-400 transition-colors">Liderança Técnica</a></li>
+                        <li><a href="#calculadora" class="hover:text-sky-400 transition-colors">Calculadora de Investimento</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-3">
+                    <h3 class="text-xs font-bold uppercase text-white tracking-wider">Conformidade Legal & Contato</h3>
+                    <div class="space-y-1 text-slate-400">
+                        <div>• Lei Brasileira de Inclusão (LBI nº 13.146/2015)</div>
+                        <div>• Decreto nº 5.626/2005 (Regulamentação da Libras)</div>
+                        <div>• Base Operacional: Juiz de Fora / MG</div>
+                        <div>• Atendimento em todo o território nacional</div>
+                    </div>
+                    <div class="pt-2 flex items-center gap-3 text-lg text-slate-400">
+                        <a href="https://wa.me/5563992581001" target="_blank" class="hover:text-emerald-400 transition-colors" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="mailto:osvaldoqueta@gmail.com" class="hover:text-sky-400 transition-colors" aria-label="E-mail"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-300">
+                <div>
+                    &copy; 2026 FOX LIBRAS | Fox Store BR. Todos os direitos reservados.
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="#inicio" class="hover:underline">Subdomínio: libras.foxstorebr.com</a>
+                    <span>•</span>
+                    <button onclick="openLgpdModal()" class="hover:underline text-slate-300 hover:text-sky-400">Política de Privacidade (LGPD)</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING SCROLL TO TOP BUTTON (Z-40, BOTTOM-24 RIGHT-6) -->
+    <button id="scrollTopBtn" onclick="scrollToTop()" aria-label="Voltar ao Topo" class="fixed bottom-24 right-6 z-40 w-12 h-12 rounded-full bg-slate-900/90 text-sky-400 border border-sky-500/30 hover:bg-sky-500 hover:text-white transition-all shadow-lg hidden items-center justify-center group">
+        <i class="fa-solid fa-chevron-up text-lg group-hover:-translate-y-0.5 transition-transform"></i>
+    </button>
+
+    <!-- FLOATING WHATSAPP CTA BUTTON (Z-50, BOTTOM-6 RIGHT-6) -->
+    <a href="javascript:void(0)" onclick="triggerLeadOrWhatsApp()" aria-label="Conversar no WhatsApp Comercial" class="fixed bottom-6 right-6 z-50 group flex items-center">
+        <div class="hidden sm:flex items-center mr-3 px-3.5 py-1.5 rounded-xl bg-[#0B132B] text-white text-xs font-semibold border border-slate-700 shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+            Falar com Intérprete no WhatsApp
+        </div>
+        <div class="w-14 h-14 rounded-full bg-emerald-600 text-white flex items-center justify-center text-2xl shadow-xl hover:bg-emerald-500 hover:scale-110 transition-all relative">
+            <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-400 rounded-full animate-ping"></span>
+            <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-400 rounded-full border-2 border-[#080E1E]"></span>
+            <i class="fa-brands fa-whatsapp"></i>
+        </div>
+    </a>
+
+    <!-- MODAL DRAWER DE CAPTURA DE LEAD AUTOMATIZADA PARA WHATSAPP -->
+    <div id="leadModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-[#080E1E]/80 backdrop-blur-sm" role="dialog" aria-modal="true">
+        <div class="bg-[#0F172A] w-full max-w-md rounded-3xl border border-slate-700 shadow-2xl overflow-hidden flex flex-col">
+            <div class="p-6 border-b border-slate-800 flex items-center justify-between bg-[#0B132B]">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-[#0F172A] border border-slate-700 text-emerald-400 flex items-center justify-center text-xl">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-white">Identificação Corporativa</h3>
+                        <p class="text-xs text-slate-400">Receber Proposta Formal via WhatsApp</p>
+                    </div>
+                </div>
+                <button onclick="closeLeadModal()" class="text-slate-400 hover:text-white p-2 text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form onsubmit="submitLeadModalForm(event)" class="p-6 space-y-4 text-xs">
+                <div class="space-y-1.5">
+                    <label for="leadName" class="block font-bold uppercase text-slate-300">Seu Nome Completo *</label>
+                    <input type="text" id="leadName" required placeholder="Ex: Roberto Silva" class="w-full bg-[#080E1E] border border-slate-800 rounded-xl p-3 text-slate-100 placeholder-slate-500 focus:border-sky-500 focus:outline-none">
+                </div>
+
+                <div class="space-y-1.5">
+                    <label for="leadEmail" class="block font-bold uppercase text-slate-300">E-mail Corporativo *</label>
+                    <input type="email" id="leadEmail" required placeholder="roberto@empresa.com.br" class="w-full bg-[#080E1E] border border-slate-800 rounded-xl p-3 text-slate-100 placeholder-slate-500 focus:border-sky-500 focus:outline-none">
+                </div>
+
+                <div class="space-y-1.5">
+                    <label for="leadCompany" class="block font-bold uppercase text-slate-300">Empresa / Instituição *</label>
+                    <input type="text" id="leadCompany" required placeholder="Nome da empresa" class="w-full bg-[#080E1E] border border-slate-800 rounded-xl p-3 text-slate-100 placeholder-slate-500 focus:border-sky-500 focus:outline-none">
+                </div>
+
+                <div id="leadModalStatus" class="hidden p-3 rounded-lg font-medium text-[11px]"></div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow-md flex items-center justify-center gap-2 text-sm transition-all">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Confirmar & Conectar no WhatsApp</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX MODAL PARA GALERIA DE FOTOS -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-[#080E1E]/90 backdrop-blur-sm" onclick="closeLightbox()">
+        <div class="relative max-w-4xl w-full bg-[#0F172A] rounded-2xl overflow-hidden border border-slate-700 shadow-2xl p-2" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-[#0B132B] text-white flex items-center justify-center hover:bg-sky-500 hover:text-slate-950 transition-all">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <img id="lightboxImg" src="" alt="" class="w-full h-auto max-h-[80vh] object-contain rounded-xl">
+            <div class="p-4 text-center">
+                <h4 id="lightboxCaption" class="text-sm font-bold text-white"></h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL POLÍTICA DE PRIVACIDADE (LGPD) -->
+    <div id="lgpdModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-[#080E1E]/85 backdrop-blur-sm" role="dialog" aria-modal="true">
+        <div class="bg-[#0F172A] w-full max-w-3xl rounded-3xl border border-slate-700 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+            <div class="p-6 border-b border-slate-800 flex items-center justify-between bg-[#0B132B]">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-[#0F172A] border border-slate-700 text-sky-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-white">Política de Privacidade & LGPD</h3>
+                        <p class="text-xs text-slate-400">FOX STORE BR / FOX LIBRAS — CNPJ 66.550.293/0001-99</p>
+                    </div>
+                </div>
+                <button onclick="closeLgpdModal()" class="text-slate-400 hover:text-white p-2 text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-6 sm:p-8 overflow-y-auto space-y-5 text-xs text-slate-300 leading-relaxed">
+                <div class="p-4 rounded-xl bg-[#080E1E] border border-slate-800 space-y-1">
+                    <div class="font-bold text-white text-sm">Compromisso com a Segurança e Transparência</div>
+                    <p>A FOX LIBRAS (CNPJ 66.550.293/0001-99) garante a conformidade integral com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018). Os dados coletados em nossos formulários destinam-se exclusivamente ao atendimento comercial e elaboração de propostas corporativas de acessibilidade.</p>
+                </div>
+
+                <div class="space-y-2">
+                    <h4 class="font-bold text-sky-400 uppercase text-xs">1. Coleta e Finalidade dos Dados</h4>
+                    <p>Coletamos nome, e-mail corporativo, telefone e nome da instituição estritamente para a formulação de propostas de serviços de tradução, interpretação e central on-demand em LIBRAS.</p>
+                </div>
+
+                <div class="space-y-2">
+                    <h4 class="font-bold text-sky-400 uppercase text-xs">2. Direitos do Titular (Art. 18 LGPD)</h4>
+                    <p>Você possui o direito de solicitar a confirmação do tratamento, acesso aos dados, correção de informações incompletas ou a exclusão definitiva dos seus dados de nossa base a qualquer momento.</p>
+                </div>
+
+                <div class="space-y-2">
+                    <h4 class="font-bold text-emerald-400 uppercase text-xs">3. Contato do Encarregado de Dados (DPO)</h4>
+                    <p>Para exercer seus direitos ou tirar dúvidas sobre privacidade, entre em contato via e-mail corporativo: <strong class="text-white">osvaldoqueta@gmail.com</strong>.</p>
+                </div>
+            </div>
+
+            <div class="p-6 border-t border-slate-800 bg-[#0B132B] flex justify-between items-center">
+                <span class="text-[11px] text-slate-400 font-mono">Base Legal: LGPD Lei 13.709/2018</span>
+                <button onclick="closeLgpdModal()" class="px-6 py-2.5 bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold rounded-xl transition-all">
+                    Entendido & Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CURRÍCULO PROF. OSVALDO QUETA -->
+    <div id="cvModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-[#080E1E]/80 backdrop-blur-sm" role="dialog" aria-modal="true">
+        <div class="bg-[#0F172A] w-full max-w-3xl rounded-3xl border border-slate-700 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+            <div class="p-6 border-b border-slate-800 flex items-center justify-between bg-[#0B132B]">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-[#0F172A] border border-slate-700 text-sky-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-white">Currículo Resumido & Qualificação Técnica</h3>
+                        <p class="text-xs text-slate-400">Prof. Mestre Osvaldo Queta — Especialista em LIBRAS</p>
+                    </div>
+                </div>
+                <button onclick="closeCvModal()" class="text-slate-400 hover:text-white p-2 text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-6 sm:p-8 overflow-y-auto space-y-6 text-xs sm:text-sm text-slate-300">
+                <div class="space-y-3">
+                    <h4 class="text-sm font-bold text-sky-400 uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-certificate"></i> Formação Acadêmica & Titulações
+                    </h4>
+                    <div class="space-y-2 border-l-2 border-slate-700 pl-4">
+                        <div>
+                            <div class="font-bold text-white">Mestrado em Educação</div>
+                            <div class="text-xs text-slate-400">FUNIBER — Foco em Metodologias Inclusivas e Aprendizagem Bilíngue para Surdos.</div>
+                        </div>
+                        <div>
+                            <div class="font-bold text-white">Graduação em Letras / LIBRAS</div>
+                            <div class="text-xs text-slate-400">Domínio da estrutura gramatical, sintaxe e aspectos socioculturais da Língua de Sinais.</div>
+                        </div>
+                        <div>
+                            <div class="font-bold text-white">MBA em Gestão de TI Corporativa & Análise e Dev de Sistemas</div>
+                            <div class="text-xs text-slate-400">Integração de tecnologia da informação, arquitetura de sistemas e governança B2B.</div>
+                        </div>
+                        <div>
+                            <div class="font-bold text-white">Pós-Graduação em Ciência de Dados</div>
+                            <div class="text-xs text-slate-400">Análise quantitativa e estruturação de dados de acessibilidade.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="text-sm font-bold text-sky-400 uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-briefcase"></i> Trajetória e Experiência (20+ Anos)
+                    </h4>
+                    <div class="space-y-2 border-l-2 border-slate-700 pl-4">
+                        <div>
+                            <div class="font-bold text-white">Atuação na UFJF (Universidade Federal de Juiz de Fora)</div>
+                            <div class="text-xs text-slate-400">Tradução e interpretação em bancas, eventos científicos, disciplinas de graduação e pós-graduação.</div>
+                        </div>
+                        <div>
+                            <div class="font-bold text-white">Atuação no IFTO (Instituto Federal do Tocantins)</div>
+                            <div class="text-xs text-slate-400">Desenvolvimento de metodologias de ensino bilíngue e capacitação institucional.</div>
+                        </div>
+                        <div>
+                            <div class="font-bold text-white">Consultor de Acessibilidade B2B — Fox Libras</div>
+                            <div class="text-xs text-slate-400">Implementação de centrais de atendimento em Libras, interpretação de lives e treinamentos corporativos.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-[#080E1E] border border-slate-800 space-y-2">
+                    <div class="font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-lightbulb text-amber-400"></i> Visão de Acessibilidade Corporativa
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        "A acessibilidade em Libras não é apenas uma obrigação legal (LBI nº 13.146/2015), mas sim um ativo estratégico que eleva o valor de marca das organizações, expande a base de clientes e garante a equidade real no ambiente de trabalho."
+                    </p>
+                </div>
+            </div>
+
+            <div class="p-6 border-t border-slate-800 bg-[#0B132B] flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="text-xs text-slate-400 font-mono">CNPJ: 66.550.293/0001-99</div>
+                <div class="flex items-center gap-3 w-full sm:w-auto">
+                    <button onclick="closeCvModal()" class="w-full sm:w-auto px-5 py-2.5 bg-[#080E1E] text-slate-300 text-xs font-semibold rounded-xl border border-slate-700">
+                        Fechar
+                    </button>
+                    <a href="assets/pdf/Curriculo-Osvaldo-Queta-LIBRAS.pdf" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-5 py-2.5 bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold rounded-xl shadow-md flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span>Abrir PDF Completo</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC (INTACT & 100% OPERATIONAL) -->
+    <script>
+        // --- 1. CONFIGURAÇÃO GLOBAL DE PRECIFICAÇÃO (PRICING_CONFIG) ---
+        const PRICING_CONFIG = {
+            hourlyRates: {
+                'instituicoes_ensino': 80.00,
+                'central_sac': 95.00,
+                'eventos_transmissoes': 180.00,
+                'traducao_audiovisual': 120.00,
+                'consultoria_rh': 220.00
+            },
+            multipliers: {
+                'padrao': 1.0,
+                'enterprise': 1.35,
+                'exclusivo': 1.60
+            }
+        };
+
+        // --- 2. INPUT SANITIZATION (XSS PREVENTION) ---
+        function sanitizeHTML(str) {
+            if (!str) return '';
+            const temp = document.createElement('div');
+            temp.textContent = str;
+            return temp.innerHTML;
+        }
+
+        // --- 3. MOBILE MENU CONTROLLER ---
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-xmark');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars');
+                }
+            });
+        }
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // --- 4. DEMO VIDEO SHOWCASE PLAYER ---
+        const videoElement = document.getElementById('librasDemoVideo');
+        const videoOverlay = document.getElementById('videoOverlay');
+        const videoTitleDisplay = document.getElementById('videoTitleDisplay');
+        const videoPathDisplay = document.getElementById('videoPathDisplay');
+
+        function playDemoVideo() {
+            if (videoElement) {
+                videoElement.play();
+                if (videoOverlay) videoOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    if (videoOverlay) videoOverlay.style.display = 'none';
+                }, 300);
+            }
+        }
+
+        if (videoElement) {
+            videoElement.addEventListener('pause', () => {
+                if (videoOverlay) {
+                    videoOverlay.style.display = 'flex';
+                    setTimeout(() => { videoOverlay.style.opacity = '1'; }, 10);
+                }
+            });
+        }
+
+        function changeDemoVideo(type, elementBtn) {
+            const buttons = document.querySelectorAll('.video-select-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'border-sky-500/60');
+                btn.classList.add('border-slate-800');
+            });
+
+            if (elementBtn) {
+                elementBtn.classList.add('active', 'border-sky-500/60');
+                elementBtn.classList.remove('border-slate-800');
+            }
+
+            let realVideoPath = "assets/videos/demonstracao-sac-libras.mp4";
+            let videoTitle = "Demonstração: Central de Atendimento SAC";
+
+            if (type === 'sac') {
+                realVideoPath = "assets/videos/demonstracao-sac-libras.mp4";
+                videoTitle = "Demonstração: Central de Atendimento SAC";
+            } else if (type === 'eventos') {
+                realVideoPath = "assets/videos/demonstracao-evento.mp4";
+                videoTitle = "Demonstração: Interpretação de Eventos ao Vivo";
+            } else if (type === 'ead') {
+                realVideoPath = "assets/videos/demonstracao-ead.mp4";
+                videoTitle = "Demonstração: Tradução de Cursos EAD";
+            }
+
+            if (videoElement) {
+                videoElement.pause();
+                videoElement.src = realVideoPath;
+                videoElement.load();
+                
+                if (videoTitleDisplay) videoTitleDisplay.textContent = videoTitle;
+                if (videoPathDisplay) videoPathDisplay.textContent = realVideoPath;
+
+                if (videoOverlay) {
+                    videoOverlay.style.display = 'flex';
+                    videoOverlay.style.opacity = '1';
+                }
+            }
+        }
+
+        // --- 5. CONTROLE DA GALERIA DE BASTIDORES & PROVA SOCIAL ---
+        function switchGalleryTab(tabName, btnElement) {
+            const tabBtns = document.querySelectorAll('.gallery-tab-btn');
+            tabBtns.forEach(btn => {
+                btn.classList.remove('active', 'bg-sky-600', 'text-white', 'shadow-md');
+                btn.classList.add('text-slate-400');
+            });
+
+            btnElement.classList.add('active', 'bg-sky-600', 'text-white', 'shadow-md');
+            btnElement.classList.remove('text-slate-400');
+
+            const tabEstudio = document.getElementById('tabGalleryEstudio');
+            const tabAlunas = document.getElementById('tabGalleryAlunas');
+
+            if (tabName === 'estudio') {
+                tabEstudio.classList.remove('hidden');
+                tabAlunas.classList.add('hidden');
+            } else {
+                tabEstudio.classList.add('hidden');
+                tabAlunas.classList.remove('hidden');
+            }
+        }
+
+        function openLightbox(imgSrc, caption) {
+            const modal = document.getElementById('lightboxModal');
+            const img = document.getElementById('lightboxImg');
+            const cap = document.getElementById('lightboxCaption');
+            if (modal && img) {
+                img.src = imgSrc;
+                cap.textContent = caption || '';
+                modal.classList.remove('hidden');
+            }
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightboxModal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        // --- 6. CALCULADORA INTERATIVA ("A PARTIR DE") ---
+        function calcularInvestimento() {
+            const serviceKey = document.getElementById('calcService').value;
+            const volumeInput = document.getElementById('calcVolume');
+            const volumeVal = parseInt(volumeInput.value, 10);
+
+            const tierRadio = document.querySelector('input[name="calcTier"]:checked');
+            const tierKey = tierRadio ? tierRadio.value : 'padrao';
+
+            const hourlyRate = PRICING_CONFIG.hourlyRates[serviceKey] || 95.00;
+            const multiplier = PRICING_CONFIG.multipliers[tierKey] || 1.0;
+
+            const volumeLabel = document.getElementById('volumeLabel');
+            const volumeValueDisplay = document.getElementById('volumeValue');
+            const summaryService = document.getElementById('summaryService');
+            const summaryHourlyRate = document.getElementById('summaryHourlyRate');
+            const summaryVolume = document.getElementById('summaryVolume');
+            const summaryTier = document.getElementById('summaryTier');
+            const calcPrice = document.getElementById('calcPrice');
+
+            let unitName = "atendimentos/mês";
+            let serviceTitle = "Central Libras SAC Web";
+
+            if (serviceKey === 'instituicoes_ensino') {
+                unitName = "horas/mês de suporte";
+                serviceTitle = "Acessibilidade Educacional";
+                volumeLabel.textContent = "2. Carga Horária Acadêmica (Horas/mês)";
+                volumeInput.min = 10;
+                volumeInput.max = 160;
+                volumeInput.step = 10;
+            } else if (serviceKey === 'central_sac') {
+                unitName = "atendimentos/mês";
+                serviceTitle = "Central Libras SAC Web";
+                volumeLabel.textContent = "2. Volume Estimado (Atendimentos/mês)";
+                volumeInput.min = 10;
+                volumeInput.max = 500;
+                volumeInput.step = 10;
+            } else if (serviceKey === 'eventos_transmissoes') {
+                unitName = "horas de evento";
+                serviceTitle = "Interpretação de Eventos";
+                volumeLabel.textContent = "2. Carga Horária Estimada (Horas)";
+                volumeInput.min = 2;
+                volumeInput.max = 40;
+                volumeInput.step = 2;
+            } else if (serviceKey === 'traducao_audiovisual') {
+                unitName = "minutos de vídeo";
+                serviceTitle = "Tradução & Legendagem";
+                volumeLabel.textContent = "2. Duração Total (Minutos de Vídeo)";
+                volumeInput.min = 5;
+                volumeInput.max = 200;
+                volumeInput.step = 5;
+            } else if (serviceKey === 'consultoria_rh') {
+                unitName = "colaboradores treinados";
+                serviceTitle = "Consultoria & Treinamento RH";
+                volumeLabel.textContent = "2. Tamanho da Equipe (Colaboradores)";
+                volumeInput.min = 10;
+                volumeInput.max = 200;
+                volumeInput.step = 10;
+            }
+
+            volumeValueDisplay.textContent = `${volumeVal} ${unitName.split(' ')[0]}`;
+
+            let estimatedTotal = Math.round(hourlyRate * volumeVal * multiplier);
+            if (estimatedTotal < 450) estimatedTotal = 450;
+
+            const formattedPrice = estimatedTotal.toLocaleString('pt-BR');
+            const periodicity = (serviceKey === 'eventos_transmissoes' || serviceKey === 'traducao_audiovisual') ? ' (projeto)' : '/mês';
+            
+            // Hierarquia tipográfica soberba e limpa
+            calcPrice.innerHTML = `<span class="text-sm font-medium text-slate-400">a partir de</span> <span class="text-3xl sm:text-4xl font-bold text-sky-400 font-mono">R$ ${formattedPrice}</span> <span class="text-xs text-slate-400">${periodicity}</span>`;
+
+            summaryService.textContent = serviceTitle;
+            summaryHourlyRate.textContent = `R$ ${hourlyRate.toFixed(2).replace('.', ',')}/h`;
+            summaryVolume.textContent = `${volumeVal} ${unitName}`;
+
+            let tierName = "Padrão (1.0x)";
+            if (tierKey === 'enterprise') tierName = "Enterprise (1.35x)";
+            if (tierKey === 'exclusivo') tierName = "Exclusivo (1.60x)";
+            summaryTier.textContent = tierName;
+        }
+
+        // --- 7. CAPTURA DE LEAD AUTOMATIZADA PARA WHATSAPP ---
+        let pendingRequestedService = null;
+
+        function getContactFieldsData() {
+            const nameEl = document.getElementById('contactName');
+            const emailEl = document.getElementById('contactEmail');
+            const companyEl = document.getElementById('contactCompany');
+
+            const name = nameEl ? nameEl.value.trim() : '';
+            const email = emailEl ? emailEl.value.trim() : '';
+            const company = companyEl ? companyEl.value.trim() : '';
+
+            return { name, email, company };
+        }
+
+        function triggerLeadOrWhatsApp(specificService) {
+            if (specificService) pendingRequestedService = specificService;
+            handleCalculatedWhatsAppLead();
+        }
+
+        function handleCalculatedWhatsAppLead() {
+            const { name, email, company } = getContactFieldsData();
+
+            if (!name || !email || !company) {
+                openLeadModal();
+                return;
+            }
+
+            executeWhatsAppRedirect(name, email, company);
+        }
+
+        function openLeadModal() {
+            const modal = document.getElementById('leadModal');
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closeLeadModal() {
+            const modal = document.getElementById('leadModal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function submitLeadModalForm(e) {
+            e.preventDefault();
+
+            const name = sanitizeHTML(document.getElementById('leadName').value.trim());
+            const email = sanitizeHTML(document.getElementById('leadEmail').value.trim());
+            const company = sanitizeHTML(document.getElementById('leadCompany').value.trim());
+
+            if (!name || !email || !company) {
+                const status = document.getElementById('leadModalStatus');
+                status.className = "p-3 rounded-lg font-medium text-[11px] bg-red-950 text-red-300 block";
+                status.textContent = "Por favor, preencha todos os campos.";
+                return;
+            }
+
+            if (document.getElementById('contactName')) document.getElementById('contactName').value = name;
+            if (document.getElementById('contactEmail')) document.getElementById('contactEmail').value = email;
+            if (document.getElementById('contactCompany')) document.getElementById('contactCompany').value = company;
+
+            closeLeadModal();
+            executeWhatsAppRedirect(name, email, company);
+        }
+
+        function executeWhatsAppRedirect(name, email, company) {
+            const serviceName = pendingRequestedService || document.getElementById('summaryService').textContent;
+            const volumeText = document.getElementById('summaryVolume').textContent;
+            const tierText = document.getElementById('summaryTier').textContent;
+            
+            let priceRaw = document.getElementById('calcPrice').innerText.replace('\n', ' ');
+
+            const msg = `Ol%C3%A1%20Prof.%20Osvaldo!%20Solicito%20proposta%20formal%20para%20${encodeURIComponent(serviceName)}.%20Carga%20estimada%3A%20${encodeURIComponent(volumeText)}%20(${encodeURIComponent(tierText)}).%20Estimativa%20do%20site%3A%20${encodeURIComponent(priceRaw)}.%20Nome%3A%20${encodeURIComponent(name)}%20%7C%20Empresa%3A%20${encodeURIComponent(company)}%20%7C%20E-mail%3A%20${encodeURIComponent(email)}.`;
+
+            window.open(`https://wa.me/5563992581001?text=${msg}`, '_blank');
+        }
+
+        // --- 8. FORMULÁRIO DE CONTATO B2B ---
+        function handleContactSubmit(e) {
+            e.preventDefault();
+
+            const name = sanitizeHTML(document.getElementById('contactName').value.trim());
+            const email = sanitizeHTML(document.getElementById('contactEmail').value.trim());
+            const phone = sanitizeHTML(document.getElementById('contactPhone').value.trim());
+            const company = sanitizeHTML(document.getElementById('contactCompany').value.trim());
+            const interest = sanitizeHTML(document.getElementById('contactInterest').value);
+            const message = sanitizeHTML(document.getElementById('contactMessage').value.trim());
+
+            const statusDiv = document.getElementById('contactStatus');
+
+            if (!name || !email || !phone || !company || !message) {
+                statusDiv.className = "p-4 rounded-xl text-xs font-medium bg-red-950/80 border border-red-500/40 text-red-300 block";
+                statusDiv.textContent = "Por favor, preencha todos os campos obrigatórios (*).";
+                return;
+            }
+
+            statusDiv.className = "p-4 rounded-xl text-xs font-medium bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 block space-y-2";
+            statusDiv.innerHTML = `
+                <div class="font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
+                    <span>Mensagem processada com sucesso!</span>
+                </div>
+                <div>Obrigado, ${name}. Nossa equipe técnica entrará em contato em breve no e-mail <strong>${email}</strong>.</div>
+            `;
+
+            executeWhatsAppRedirect(name, email, company);
+        }
+
+        // --- 9. MODAIS (CV & LGPD) ---
+        function openCvModal() {
+            const modal = document.getElementById('cvModal');
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closeCvModal() {
+            const modal = document.getElementById('cvModal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function openLgpdModal() {
+            const modal = document.getElementById('lgpdModal');
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closeLgpdModal() {
+            const modal = document.getElementById('lgpdModal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeCvModal();
+                closeLgpdModal();
+                closeLeadModal();
+                closeLightbox();
+            }
+        });
+
+        // --- 10. SCROLL TO TOP CONTROLLER ---
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        if (scrollTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollTopBtn.classList.remove('hidden');
+                    scrollTopBtn.classList.add('flex');
+                } else {
+                    scrollTopBtn.classList.add('hidden');
+                    scrollTopBtn.classList.remove('flex');
+                }
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize Calculator on Page Load
+        window.addEventListener('DOMContentLoaded', () => {
+            calcularInvestimento();
+        });
+    </script>
+
+    <!-- WIDGET OFICIAL DO VLIBRAS (ACESSIVIDADE EM LIBRAS) -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+</body>
+</html>
