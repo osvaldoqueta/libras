@@ -15,6 +15,36 @@ O **FOX LIBRAS** é uma plataforma B2B de alta performance e governança em aces
 
 ## 🚀 Histórico de Sprints
 
+### 📅 Sprint 1.9 — Identidade Visual Oficial, Carrosséis B2B, Telemetria Supabase & Dashboard Admin (23/09/2026)
+- **Atualização da Identidade Visual**:
+  - Logomarca oficial do Header e Footer atualizada para `assets/images/logo/logo-1-transp.png` com ajuste proporcional responsivo (`h-10 sm:h-12 w-auto object-contain`), eliminando distorção visual em telas mobile e desktop.
+  - Favicon atualizado no `<head>` para a marca oficial `assets/images/logo/favicon-1.png`.
+- **Carrossel Dinâmico de Corporações Atendidas (Prova Social B2B)**:
+  - Nova seção `#corporacoes-atendidas` posicionada logo abaixo da Hero Section (*"Organizações e Instituições Atendidas"*).
+  - Implementação de slider de velocidade constante em malha infinita (infinite marquee CSS `@keyframes marquee`) consumindo os logotipos em `assets/images/corps/` (`UniAcademia.png`, `cocacola.png`, `estacao-das-artes.png`, `imepp.png`, `logo-bd-jf.png`, `logo_site-camara.png`, `tv-camara.jpg`).
+  - Padronização visual em escala de cinza com transição para cores reais no hover (`grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300`).
+- **Carrossel Interativo de Bastidores (`assets/images/gallery/`)**:
+  - Reformulação da aba de bastidores da seção `#bastidores` (Portfólio Prático) em um carrossel responsivo interativo alimentado por array JS dinâmico com 20 registros fotográficos de atuação técnica.
+  - Navegação por botões Anterior/Próximo, contador de fotos em tempo real e suporte completo a gestos de touch/swipe drag em dispositivos móveis, mantendo a ampliação em Lightbox High-Res.
+- **Otimização da Arquitetura de Vídeos & Streaming**:
+  - Estrutura modular em JavaScript (`DEMO_VIDEOS` + `renderServicesVideoGrid()`) com suporte híbrido para players embutidos do YouTube (`<iframe>` com `loading="lazy"`) e mídias locais de `assets/videos/` (`<video>` com `preload="metadata"` e `poster="assets/images/video-poster.jpg"`).
+- **Telemetria por IP/Região & Dashboard Administrativo B2B (Supabase)**:
+  - Integração do SDK `@supabase/supabase-js` v2 via CDN conectando à URL `https://vqzzmbhbzhhrqodvikhn.supabase.co`.
+  - **Coleta Silenciosa Frontend**: Captura automática no carregamento da página com geolocalização por IP (`ipapi.co` / `freeipapi.com`) e inserção na tabela `site_visits` do Supabase com os campos:
+    - `ip_address` (IP do visitante / hash)
+    - `city` (Cidade)
+    - `region` (Estado / UF)
+    - `country` (País)
+    - `visited_at` (Timestamp ISO)
+    - `device_type` (Mobile ou Desktop)
+  - **Painel Administrativo (#admin)**:
+    - Rota hash `#admin` e modal autenticado acessível por botão discreto no rodapé.
+    - Autenticação por senha mestre administrativa ou Supabase Auth.
+    - Exibição de métricas acumuladas: total de visitas, total de regiões (UF) ativas, percentual mobile, gráfico de barras com distribuição por estado (MG, SP, SC, MA, PA, etc.) e tabela dos últimos acessos em tempo real com indicador de localização.
+  - **Resiliência de Dados**: Armazenamento secundário em cache local (`localStorage`) para exibição ininterrupta das métricas de telemetria em cenários offline ou em fase de provisionamento de chaves.
+
+---
+
 ### 📅 Sprint 1.8 — Preenchimento Full-Width & Elementos Flutuantes Sem Colisão (22/07/2026)
 - **Ajuste de Imagens de Fundo Full-Width**:
   - Aplicação de `relative w-full bg-cover bg-center bg-no-repeat overflow-hidden` nas seções com imagens decorativas e marcas d'água (`#inicio`, `#servicos`, `#calculadora`).
@@ -70,25 +100,49 @@ O **FOX LIBRAS** é uma plataforma B2B de alta performance e governança em aces
 
 ```
 .libras/
-├── index.html                                 # SPA Completa (Hero Full-Width, Floating Elements Z-Stacking, Widget VLibras, Pill CTA, Navy Design)
-├── CONTEXT.md                                 # Documentação viva do projeto e histórico das Sprints 1.0 a 1.8
+├── index.html                                 # SPA Completa (Hero Full-Width, Marquee B2B, Carrossel Bastidores, Streaming Vídeos, Telemetria IP, Supabase & Dashboard Admin)
+├── CONTEXT.md                                 # Documentação viva do projeto e histórico das Sprints 1.0 a 1.9
 ├── Np1.md                                     # Diretrizes globais de governança, arquitetura e Np1 compliance
 └── assets/
     ├── images/
+    │   ├── logo/
+    │   │   ├── logo-1-transp.png              # Logo oficial transparente FOX LIBRAS (Header & Footer)
+    │   │   └── favicon-1.png                  # Favicon oficial PNG da plataforma
+    │   ├── corps/                             # Marcas e logotipos das corporações e instituições atendidas
+    │   │   ├── UniAcademia.png
+    │   │   ├── cocacola.png
+    │   │   ├── estacao-das-artes.png
+    │   │   ├── imepp.png
+    │   │   ├── logo-bd-jf.png
+    │   │   ├── logo_site-camara.png
+    │   │   └── tv-camara.jpg
+    │   ├── gallery/                           # Galeria fotográfica de bastidores e atuação prática
     │   ├── osvaldo-queta-perfil.jpg           # Fotografia de perfil do Prof. Osvaldo Queta
     │   ├── video-poster.jpg                   # Poster dos vídeos de demonstração
     │   ├── libras_pessoas_se_comunicam.jpg   # Imagem de fundo da Hero Section (Acessibilidade Real)
-    │   ├── libras-maos.png                    # Ilustração gráfica / marca d'água das mãos em Libras
-    │   ├── IMG-20260519-WA0023.jpg            # Bastidores de Gravação e Interpretação ao Vivo
-    │   ├── IMG-20260519-WA0025.jpg            # Atuação em Estúdio - Tradução Institucional
-    │   └── IMG-20260519-WA0026.jpg            # Transmissão Oficial e Janela de Libras
+    │   └── libras-maos.png                    # Ilustração gráfica / marca d'água das mãos em Libras
     ├── pdf/
     │   └── Curriculo-Osvaldo-Queta-LIBRAS.pdf # Currículo profissional e acadêmico em PDF
-    └── videos/
-        ├── demonstracao-sac-libras.mp4        # Vídeo da demonstração SAC On-Demand
-        ├── demonstracao-evento.mp4            # Vídeo de demonstração de interpretação em eventos
-        ├── demonstracao-ead.mp4               # Vídeo de tradução para cursos EAD
-        ├── 20250905_083324.mp4                # Vídeo real de atendimento SAC
-        ├── 20260519_160642.mp4                # Vídeo real de treinamentos corporativos
-        └── 65cf1137395f4bbca99ea87541ea65a1.mp4 # Vídeo de prova social / prática de alunas
+    └── videos/                                # Acervo de mídias e demonstrações práticas em Libras
+```
+
+---
+
+## 🗄️ Esquema da Tabela Supabase (`site_visits`)
+
+```sql
+CREATE TABLE IF NOT EXISTS site_visits (
+    id BIGINT GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+    ip_address TEXT DEFAULT 'Anônimo',
+    city TEXT,
+    region TEXT,
+    country TEXT DEFAULT 'Brasil',
+    visited_at TIMESTAMPTZ DEFAULT NOW(),
+    device_type TEXT
+);
+
+-- Política RLS para permitir inserção anônima de telemetria
+ALTER TABLE site_visits ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Permitir insercao publica de visitas" ON site_visits FOR INSERT WITH CHECK (true);
+CREATE POLICY "Permitir leitura para painel admin" ON site_visits FOR SELECT USING (true);
 ```
