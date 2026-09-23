@@ -15,6 +15,14 @@ O **FOX LIBRAS** é uma plataforma B2B de alta performance e governança em aces
 
 ## 🚀 Histórico de Sprints
 
+### 📅 Sprint 2.0 — Adaptação dos Vídeos Reais de Atuação via YouTube Shorts (23/09/2026)
+- **Integração dos Vídeos do YouTube Shorts (`@quetaenglish`)**:
+  - Substituição dos arquivos locais de teste na seção *Demonstração Prática & Autoridade* (`#galeria-servicos`) pelos vídeos reais do canal oficial `@quetaenglish`.
+  - Mapeamento dinâmico de 6 YouTube Shorts (`ofSwbP4dN34`, `Q2M-EY789xQ`, `BdA5100ZBQg`, `ceWu2eh4lD4`, `6aztjSFdRII`, `-oyKvGXqOLk`) através da API de iframe `https://www.youtube-nocookie.com/embed/`.
+  - Atualização do renderizador `renderServicesVideoGrid()` com distruição uniforme em grid responsiva de 3 colunas, badge exclusivo com ícone do YouTube (`YouTube Shorts`) e descrições técnicas detalhadas para cada modalidade de atendimento.
+
+---
+
 ### 📅 Sprint 1.9 — Identidade Visual Oficial, Carrosséis B2B, Telemetria Supabase & Dashboard Admin (23/09/2026)
 - **Atualização da Identidade Visual**:
   - Logomarca oficial do Header e Footer atualizada para `assets/images/logo/logo-1-transp.png` com ajuste proporcional responsivo (`h-10 sm:h-12 w-auto object-contain`), eliminando distorção visual em telas mobile e desktop.
