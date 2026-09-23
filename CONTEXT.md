@@ -15,7 +15,28 @@ O **FOX LIBRAS** é uma plataforma B2B de alta performance e governança em aces
 
 ## 🚀 Histórico de Sprints
 
-### 📅 Sprint 2.0 — Adaptação dos Vídeos Reais de Atuação via YouTube Shorts (23/09/2026)
+### 📅 Sprint 2.2 — Auto-Descoberta Dinâmica de Mídias (Manifests) & Responsividade de Imagens (23/09/2026)
+- **Auto-Descoberta de Imagens via `manifest.json`**:
+  - Criados os arquivos de manifesto [`assets/images/corps/manifest.json`](file:///c:/Users/Queta/.libras/assets/images/corps/manifest.json) e [`assets/images/gallery/manifest.json`](file:///c:/Users/Queta/.libras/assets/images/gallery/manifest.json) para auto-detecção em tempo de execução sem alterar código-fonte no HTML.
+  - Implementada a função assíncrona `fetchDirectoryManifest()` que consome dinamicamente novos logotipos (incluindo `hqdefault.jpg`, `logo-camara-jf.png` e novos envios) e fotos de bastidores.
+  - Adicionada formatação automática do nome de exibição das marcas a partir dos nomes de arquivos.
+- **Dimensionamento Responsivo & Tratamento de Erros**:
+  - Aplicação de `max-h-full max-w-full object-contain` nos cards de logos brancas (`h-14 md:h-16 w-36 sm:w-44`) e `object-cover` nas galerias.
+  - Atributo `onerror="this.closest(...).remove()"` integrado para omissão silenciosa de imagens inexistentes ou corrompidas, preservando o layout limpo.
+
+---
+
+### 📅 Sprint 2.1 — Meta (Facebook) Pixel ID 624428955224744 & Correções de Animação/Favicon (23/09/2026)
+- **Integração do Meta (Facebook) Pixel**:
+  - Código oficial do Meta Pixel (ID `624428955224744`) inserido no `<head>` de `index.html` com suporte `<noscript>` fallback.
+  - Telemetria de conversão `fbq('track', 'Lead')` vinculada aos formulários de proposta e disparos para o WhatsApp.
+- **Correção da Animação do Carrossel Marquee (#corporacoes-atendidas)**:
+  - Adicionados os keyframes CSS `@keyframes marquee` (`0%` a `-50%`) e a classe `.animate-marquee` no `<style>` do projeto.
+  - Ativada a aceleração de hardware GPU (`will-change: transform`) para deslizamento contínuo sem pausas em navegadores mobile (Android/iOS touch).
+- **Atualização do Favicon Oficial**:
+  - Tag `<link rel="icon">` atualizada no `<head>` com apontamento direto para `assets/images/logo/favicon-1.png`.
+
+---
 - **Integração dos Vídeos do YouTube Shorts (`@quetaenglish`)**:
   - Substituição dos arquivos locais de teste na seção *Demonstração Prática & Autoridade* (`#galeria-servicos`) pelos vídeos reais do canal oficial `@quetaenglish`.
   - Mapeamento dinâmico de 6 YouTube Shorts (`ofSwbP4dN34`, `Q2M-EY789xQ`, `BdA5100ZBQg`, `ceWu2eh4lD4`, `6aztjSFdRII`, `-oyKvGXqOLk`) através da API de iframe `https://www.youtube-nocookie.com/embed/`.
