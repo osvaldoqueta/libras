@@ -445,7 +445,7 @@ const CORPORATE_LOGOS = [
     { name: "Câmara Municipal de Juiz de Fora", src: "assets/images/corps/logo-camara-jf.png" },
     { name: "IFTO - Instituto Federal", src: "assets/images/corps/ifto-gurupi.jpg" },
     { name: "UFJF - Universidade Federal de Juiz de Fora", src: "assets/images/corps/Logo_da_UFJF.png" },
-    { name: "Orbenk", src: "assets/images/corps/orbenk.jpg" },
+    { name: "Orbenk", src: "assets/images/corps/1_colorido-1-1.webp" },
     { name: "TV Câmara", src: "assets/images/corps/tv-camara.jpg" }
 ];
 
