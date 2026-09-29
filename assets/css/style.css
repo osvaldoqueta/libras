@@ -1,0 +1,61 @@
+ ::-webkit-scrollbar {
+     width: 8px;
+ }
+
+ ::-webkit-scrollbar-track {
+     background: #080E1E;
+ }
+
+ ::-webkit-scrollbar-thumb {
+     background: #1E293B;
+     border-radius: 4px;
+ }
+
+ ::-webkit-scrollbar-thumb:hover {
+     background: #0EA5E9;
+ }
+
+ .corporate-card {
+     background-color: #0F172A;
+     border: 1px solid #1E293B;
+ }
+
+ .corporate-card:hover {
+     border-color: rgba(14, 165, 233, 0.4);
+ }
+
+ /* Marquee Infinito de Logos Corporativas (60fps Fluido) */
+ @keyframes marquee {
+     0% {
+         transform: translateX(0%);
+     }
+
+     100% {
+         transform: translateX(-50%);
+     }
+ }
+
+ .animate-marquee {
+     display: flex;
+     width: max-content;
+     animation: marquee 25s linear infinite;
+     will-change: transform;
+ }
+
+ @media (hover: hover) {
+     .animate-marquee:hover {
+         animation-play-state: paused;
+     }
+ }
+
+ /* Override Posicionamento do Widget VLibras para Evitar Colisão */
+ [vw-access-button] {
+     right: 0px !important;
+     top: 45% !important;
+     z-index: 30 !important;
+     transform: translateY(-50%) !important;
+ }
+
+ [vw-plugin-wrapper] {
+     z-index: 35 !important;
+ }
