@@ -48,6 +48,111 @@
     </noscript>
     <!-- End Meta Pixel Code -->
 
+    <!-- Schema.org Structured Data (JSON-LD) para SEO Avançado e Rich Snippets Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://libras.foxstorebr.com/#organization",
+          "name": "FOX LIBRAS | Soluções Corporativas em Acessibilidade e Libras",
+          "alternateName": "Fox Libras",
+          "url": "https://libras.foxstorebr.com/",
+          "logo": "https://libras.foxstorebr.com/assets/images/logo/logo-1-transp.png",
+          "image": "https://libras.foxstorebr.com/assets/images/logo/video-poster.jpg",
+          "description": "Plataforma B2B especializada em acessibilidade em Libras. Central de Atendimento On-Demand, Retentor Mensal Corporativo, Tradução Simultânea de Eventos e Consultoria em conformidade com a LBI nº 13.146/2015.",
+          "telephone": "+55-63-99258-1001",
+          "priceRange": "$$",
+          "taxID": "66.550.293/0001-99",
+          "founder": {
+            "@type": "Person",
+            "name": "Prof. Mestre Osvaldo Queta",
+            "jobTitle": "Fundador e Especialista em Libras / Educação Bilíngue"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Juiz de Fora",
+            "addressRegion": "MG",
+            "addressCountry": "BR"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Brasil"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Serviços Corporativos de Acessibilidade em Libras",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Central de Atendimento em Libras On-Demand (SAC Web)",
+                  "description": "Intermediação em tempo real por videochamada para SAC e lojas físicas com intérpretes certificados."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Retentor Mensal Corporativo (Plantão On-Demand + SLA Ágil)",
+                  "description": "Franquia mensal de horas pré-contratadas de intérprete com SLA prioritário para empresas."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Interpretação em Eventos, Transmissões e Lives",
+                  "description": "Tradução simultânea com janela de Libras para conferências, webinars e eventos empresariais."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Acessibilidade para Instituições de Ensino",
+                  "description": "Interpretação pedagógica para aulas, bancas examinadoras e materiais didáticos universitários."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://libras.foxstorebr.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Como funciona a contratação de intérprete de Libras corporativo?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A contratação é flexível e adaptada às necessidades da sua organização. Disponibilizamos atendimento por demanda pontual (eventos, conferências e reuniões) ou franquia mensal contínua (Retentor Corporativo e Central de SAC Web). A ativação inclui alinhamento prévio de vocabulário técnico, suporte tecnológico via link direto ou API sem necessidade de instalação de softwares complexos, e intérpretes especialistas com mestrado e ampla vivência corporativa."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "O serviço atende à Lei Brasileira de Inclusão (LBI 13.146/2015)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim, com total conformidade jurídica e técnica. Todos os serviços da FOX LIBRAS são estruturados para atender rigorosamente às exigências da Lei Federal nº 13.146/2015 (Estatuto da Pessoa com Deficiência) e aos decretos regulamentadores de acessibilidade na comunicação e no atendimento ao consumidor, eliminando barreiras comunicacionais e protegendo sua empresa contra riscos de autuação ou notificações de órgãos fiscalizadores."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Como contratar a Central de Libras em formato de retentor mensal?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O Retentor Mensal Corporativo funciona como uma franquia mensal de horas pré-acordadas (como 10h, 20h ou 40h mensais), com SLA de prontidão ágil para plantão on-demand. Esse modelo garante tarifa horária com desconto institucional, intérpretes dedicados já treinados na cultura e termos técnicos da sua empresa, além de relatórios mensais de telemetria e conformidade para sua diretoria e auditorias."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
     <!-- Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -171,9 +276,30 @@
         </div>
     </header>
 
-    <!-- HERO SECTION (COM IMAGEM REAL FULL-WIDTH E OVERLAY DE ALTO CONTRASTE WCAG AAA) -->
+    <!-- HERO SECTION (COM IMAGEM DE FUNDO IMERSIVA E DEGRADÊ LATERAL BLEND - PADRÃO INCLUA) -->
     <section id="inicio"
-        class="relative w-full py-20 md:py-28 bg-[linear-gradient(to_bottom,rgba(8,14,30,0.88),rgba(15,23,42,0.95)),url('assets/images/libras_pessoas_se_comunicam.jpg')] bg-cover bg-center bg-no-repeat overflow-hidden border-b border-slate-800/80">
+        class="relative w-full py-20 md:py-28 bg-[#080E1E] overflow-hidden border-b border-slate-800/80">
+        
+        <!-- Background Imersivo com Degradê Lateral e Vertical (Hero Blend) -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+            <!-- Imagem Contextual de Alta Resolução -->
+            <img src="assets/images/hero-libras.jpg" 
+                 alt="Intérprete de Libras em atuação corporativa e inclusão" 
+                 loading="eager" 
+                 fetchpriority="high"
+                 class="w-full h-full object-cover object-right md:object-[75%_center] opacity-35 md:opacity-50 select-none transition-opacity duration-700"
+                 style="mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 30%, black 70%); -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 30%, black 70%);">
+            
+            <!-- Máscara de Degradê Lateral Horizontal (Preserva contraste sólido e nitidez na coluna de texto à esquerda) -->
+            <div class="absolute inset-0 bg-gradient-to-r from-[#080E1E] via-[#080E1E]/95 md:via-[#080E1E]/80 to-transparent"></div>
+            
+            <!-- Máscara de Degradê Vertical (Suaviza transições no topo com a navbar e base com próxima seção) -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#080E1E] via-transparent to-[#080E1E]/70"></div>
+
+            <!-- Efeito de Luz / Glow Corporativo Sutil -->
+            <div class="absolute -top-24 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        </div>
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
@@ -257,31 +383,32 @@
                             <span class="text-xs text-slate-400 font-mono">Status: Ativo 24/7</span>
                         </div>
 
-                        <div
-                            class="relative rounded-xl overflow-hidden aspect-video bg-slate-950 border border-slate-800 group/video flex flex-col justify-end p-4">
-                            <img src="assets/images/video-poster.jpg" fetchpriority="high" loading="eager"
-                                alt="Interpretação de Libras em Tempo Real"
-                                class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover/video:scale-105 transition-transform duration-500">
+                        <div class="relative rounded-xl overflow-hidden aspect-video bg-slate-950 border border-slate-800 shadow-xl group">
+                            <iframe 
+                                src="https://www.youtube-nocookie.com/embed/kPMsB_zrldI?autoplay=1&mute=1&loop=1&playlist=kPMsB_zrldI&playsinline=1&controls=1&rel=0&modestbranding=1" 
+                                title="Interpretação em Libras na Câmara Municipal - Prof. Mestre Osvaldo Queta" 
+                                class="w-full h-full aspect-video border-0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
 
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent">
+                            <!-- Badge Informativo no Topo do Vídeo -->
+                            <div class="pointer-events-none absolute top-2.5 left-2.5 z-10 flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#080E1E]/90 backdrop-blur-sm border border-slate-700/80 text-[11px] text-white shadow-md">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <span class="text-sky-300 font-semibold">Câmara Municipal</span>
+                                <span class="text-slate-400">• Ao Vivo</span>
                             </div>
+                        </div>
 
-                            <div class="relative z-10 space-y-2">
-                                <div
-                                    class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#0B132B] border border-slate-700 text-[11px] text-sky-300 font-medium">
-                                    <i class="fa-solid fa-video text-xs"></i>
-                                    <span>Videochamada de Atendimento Bilíngue</span>
-                                </div>
-                                <h2 class="text-sm font-bold text-white">Atendimento Humanizado ao Cliente Surdo</h2>
-                                <p class="text-xs text-slate-300">Integração sem atrito via WebRTC com SAC e canais
-                                    corporativos.</p>
+                        <div class="space-y-1.5 pt-1">
+                            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-md bg-[#080E1E] border border-slate-800 text-[11px] text-sky-400 font-medium">
+                                <i class="fa-solid fa-landmark text-xs"></i>
+                                <span>Sessão Ordinária Oficial</span>
                             </div>
-
-                            <a href="#demonstracao"
-                                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-sky-500 text-slate-950 flex items-center justify-center shadow-lg hover:bg-sky-400 transition-all duration-200">
-                                <i class="fa-solid fa-play text-lg ml-1"></i>
-                            </a>
+                            <h2 class="text-sm font-bold text-white">Interpretação e Tradução em Libras ao Vivo</h2>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Atuação profissional do Prof. Mestre Osvaldo Queta na Câmara Municipal com janela oficial padronizada para transmissões públicas.
+                            </p>
                         </div>
 
                         <div class="space-y-3">
@@ -315,16 +442,16 @@
         </div>
 
         <!-- Infinite Marquee Slider Container -->
-        <div class="relative w-full overflow-hidden flex items-center py-2 group">
-            <div id="corpsMarqueeTrack" class="flex items-center gap-12 sm:gap-16 whitespace-nowrap animate-marquee">
+        <div class="relative w-full overflow-hidden flex items-center py-4 sm:py-6 group">
+            <div id="corpsMarqueeTrack" class="flex items-center gap-6 sm:gap-8 whitespace-nowrap animate-marquee">
                 <!-- Renderizado dinamicamente via JS a partir de assets/images/corps/ -->
             </div>
             <!-- Mascaramento Gradiente nas Bordas para Transição Suave -->
             <div
-                class="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#0B132B] to-transparent z-10">
+                class="pointer-events-none absolute inset-y-0 left-0 w-20 sm:w-40 bg-gradient-to-r from-[#0B132B] to-transparent z-10">
             </div>
             <div
-                class="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#0B132B] to-transparent z-10">
+                class="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-40 bg-gradient-to-l from-[#0B132B] to-transparent z-10">
             </div>
         </div>
     </section>
@@ -565,7 +692,7 @@
                     <div class="bg-[#080E1E] rounded-3xl p-4 sm:p-6 space-y-4 shadow-2xl border border-slate-800">
                         <div id="videoContainer"
                             class="relative rounded-2xl overflow-hidden bg-slate-950 aspect-video border border-slate-800 flex items-center justify-center group">
-                            <video id="librasDemoVideo" controls playsinline preload="metadata"
+                            <video id="librasDemoVideo" controls playsinline preload="none"
                                 poster="assets/images/video-poster.jpg" class="w-full h-full object-cover">
                                 <source src="assets/videos/demonstracao-sac-libras.mp4" type="video/mp4">
                                 Seu navegador não suporta reprodução de vídeos HTML5.
@@ -612,6 +739,176 @@
                 </div>
 
             </div>
+        </div>
+    </section>
+
+    <!-- BLOCO DE AUTORIDADE COMPARATIVO: FOX LIBRAS vs. AVATARES 3D & SOFTWARES AUTOMATIZADOS -->
+    <section id="comparativo-autoridade" class="py-24 bg-[#0B132B] border-b border-slate-800 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-bold uppercase tracking-wider">
+                    <i class="fa-solid fa-scale-balanced text-xs"></i>
+                    Compliance Legal & Precisão Linguística
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+                    FOX LIBRAS <span class="text-slate-400 font-light">vs.</span> Avatares 3D e Softwares Automatizados
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    Entenda por que empresas líderes e universidades substituem avatares virtuais por <strong class="text-white">Intérpretes Humanos Especialistas (Mestres em Educação)</strong> para garantir conformidade legal com a LBI e eliminar riscos jurídicos.
+                </p>
+            </div>
+
+            <!-- Tabela Comparativa em Cards B2B -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                
+                <!-- Card 1: FOX LIBRAS (Excelência Humana) -->
+                <div class="bg-[#0F172A] rounded-3xl p-6 sm:p-8 border-2 border-emerald-500/50 shadow-2xl shadow-emerald-950/20 flex flex-col justify-between relative overflow-hidden group">
+                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl font-bold border border-emerald-500/30">
+                                    <i class="fa-solid fa-user-tie"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-white">FOX LIBRAS</h3>
+                                    <div class="text-xs text-emerald-400 font-semibold">Intérprete Humano Especialista</div>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-emerald-950/80 text-emerald-300 border border-emerald-500/40 text-[11px] font-bold">
+                                100% LBI Compliant
+                            </span>
+                        </div>
+
+                        <ul class="space-y-4 text-xs sm:text-sm">
+                            <li class="flex items-start gap-3 text-slate-200">
+                                <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-check text-xs"></i></span>
+                                <div>
+                                    <strong class="text-white block font-semibold">Precisão Semântica & Contextual:</strong>
+                                    Compreende metáforas, nuances da linguagem falada e intenção comunicativa corporativa.
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-200">
+                                <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-check text-xs"></i></span>
+                                <div>
+                                    <strong class="text-white block font-semibold">Expressões Faciais e Corporais Humanas:</strong>
+                                    Na Libras, expressão facial é parâmetro gramatical obrigatório. Nossos intérpretes transmitem entonação, dúvida e assertividade.
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-200">
+                                <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-check text-xs"></i></span>
+                                <div>
+                                    <strong class="text-white block font-semibold">Domínio de Vocabulário Técnico Corporativo:</strong>
+                                    Alinhamento prévio com termos complexos de Direito, Medicina, TI, Engenharia, Finanças e Recursos Humanos.
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-200">
+                                <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-check text-xs"></i></span>
+                                <div>
+                                    <strong class="text-white block font-semibold">Interação Bidirecional Humanizada em Tempo Real:</strong>
+                                    O cliente surdo tira dúvidas e é respondido na hora no SAC, sem barreiras ou frustrações.
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-200">
+                                <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-check text-xs"></i></span>
+                                <div>
+                                    <strong class="text-white block font-semibold">Segurança Jurídica Total (Lei nº 13.146/2015):</strong>
+                                    Acessibilidade efetiva e comprovada para auditorias do Ministério Público do Trabalho e fiscalizações.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-slate-800">
+                        <button onclick="triggerLeadOrWhatsApp('Contratação de Intérprete Humano Especialista')" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all">
+                            <i class="fa-solid fa-shield-halved text-sm"></i>
+                            <span>Garantir Intérprete Certificado na Minha Empresa</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2: Avatares 3D e Softwares Virtuais (Limitações Críticas) -->
+                <div class="bg-[#0F172A] rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-xl flex flex-col justify-between opacity-90 hover:opacity-100 transition-opacity">
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-xl font-bold border border-rose-500/20">
+                                    <i class="fa-solid fa-robot"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-slate-200">Avatares 3D e Plugins Virtuais</h3>
+                                    <div class="text-xs text-rose-400 font-semibold">Softwares Automatizados</div>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-rose-950/60 text-rose-300 border border-rose-500/30 text-[11px] font-bold">
+                                Riscos Regulatórios
+                            </span>
+                        </div>
+
+                        <ul class="space-y-4 text-xs sm:text-sm">
+                            <li class="flex items-start gap-3 text-slate-400">
+                                <span class="w-5 h-5 rounded-full bg-rose-500/10 text-rose-400 flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-xmark text-xs"></i></span>
+                                <div>
+                                    <strong class="text-slate-300 block font-semibold">Tradução Literal Palavra por Palavra (Glosa):</strong>
+                                    Erros grotescos de concordância, invertendo ou desvirtuando completamente o significado de orientações corporativas.
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-400">
+                                <span class="w-5 h-5 rounded-full bg-rose-500/10 text-rose-400 flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-xmark text-xs"></i></span>
+                                <div>
+                                    <strong class="text-slate-300 block font-semibold">Rostos Rígidos e Movimentos Artificiais:</strong>
+                                    Falta de expressões não manuais impede que surdos compreendam se a frase é afirmativa, irônica ou interrogativa.
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-400">
+                                <span class="w-5 h-5 rounded-full bg-rose-500/10 text-rose-400 flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-xmark text-xs"></i></span>
+                                <div>
+                                    <strong class="text-slate-300 block font-semibold">Alucinações e Falta de Sinais Técnicos:</strong>
+                                    Softwares não conhecem termos específicos de contratos, laudos e produtos corporativos, soletrando letras sem nexo.
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-400">
+                                <span class="w-5 h-5 rounded-full bg-rose-500/10 text-rose-400 flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-xmark text-xs"></i></span>
+                                <div>
+                                    <strong class="text-slate-300 block font-semibold">Comunicação Unilateral Estática:</strong>
+                                    Não há escuta ou adaptação. Se o cliente surdo tiver dúvida ou falar com sotaque regional, o software não responde.
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-400">
+                                <span class="w-5 h-5 rounded-full bg-rose-500/10 text-rose-400 flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-xmark text-xs"></i></span>
+                                <div>
+                                    <strong class="text-slate-300 block font-semibold">Vulnerabilidade Jurídica Perante a LBI:</strong>
+                                    Tribunais e o Ministério Público já notificaram empresas por "acessibilidade de fachada" que não atende efetivamente o cidadão surdo.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-slate-800 text-center">
+                        <span class="text-xs text-slate-400 italic">Avatares são úteis para fins ilustrativos, mas insuficientes para relações comerciais e jurídicas sérias.</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Banner Resumo de Compliance -->
+            <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-sky-950/40 via-[#0F172A] to-blue-950/40 border border-sky-500/30 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="space-y-1 text-center sm:text-left">
+                    <h4 class="text-base sm:text-lg font-bold text-white flex items-center justify-center sm:justify-start gap-2">
+                        <i class="fa-solid fa-certificate text-sky-400"></i>
+                        Conformidade Homologada com a Lei nº 13.146/2015
+                    </h4>
+                    <p class="text-xs sm:text-sm text-slate-300">
+                        Nossa equipe emite relatórios formais de atendimento para governança ESG e comprovação de acessibilidade.
+                    </p>
+                </div>
+                <button onclick="triggerLeadOrWhatsApp('Consultoria de Conformidade LBI')" class="px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs sm:text-sm whitespace-nowrap shadow-md transition-all">
+                    Falar com Mestre em Educação &rarr;
+                </button>
+            </div>
+
         </div>
     </section>
 
@@ -855,14 +1152,11 @@
                         </label>
                         <select id="calcService" onchange="calcularInvestimento()"
                             class="w-full bg-[#080E1E] border border-slate-800 rounded-xl p-3.5 text-sm text-slate-200 focus:border-sky-500 focus:outline-none transition-all">
-                            <option value="instituicoes_ensino">Acessibilidade para Instituições de Ensino (R$ 80,00/h)
-                            </option>
-                            <option value="central_sac" selected>Central de Atendimento Libras On-Demand / SAC (R$
-                                95,00/h)</option>
-                            <option value="eventos_transmissoes">Interpretação em Eventos, Transmissões e Lives (R$
-                                180,00/h)</option>
-                            <option value="traducao_audiovisual">Tradução e Legendagem Audiovisual (R$ 120,00/h)
-                            </option>
+                            <option value="retentor_mensal">Retentor Mensal Corporativo (Plantão On-Demand + SLA Ágil) - R$ 110,00/h</option>
+                            <option value="instituicoes_ensino">Acessibilidade para Instituições de Ensino (R$ 80,00/h)</option>
+                            <option value="central_sac" selected>Central de Atendimento Libras On-Demand / SAC (R$ 95,00/h)</option>
+                            <option value="eventos_transmissoes">Interpretação em Eventos, Transmissões e Lives (R$ 180,00/h)</option>
+                            <option value="traducao_audiovisual">Tradução e Legendagem Audiovisual (R$ 120,00/h)</option>
                             <option value="consultoria_rh">Consultoria e Treinamento de RH (R$ 220,00/h)</option>
                         </select>
                     </div>
@@ -879,6 +1173,19 @@
                         <div class="flex justify-between text-[11px] text-slate-400 font-mono">
                             <span id="minVolumeLabel">10</span>
                             <span id="maxVolumeLabel">500</span>
+                        </div>
+                        <!-- Atalhos Rápidos de Franquia / Carga Horária -->
+                        <div id="quickPresetsContainer" class="flex flex-wrap items-center gap-2 pt-1.5 border-t border-slate-800/60">
+                            <span class="text-[11px] text-slate-400 font-medium">Franquias Sugeridas:</span>
+                            <button type="button" onclick="setCalcVolumePreset(10)" class="px-2.5 py-1 rounded-lg bg-[#080E1E] hover:bg-sky-500/20 text-sky-400 border border-slate-700 hover:border-sky-500/40 text-[11px] font-mono transition-all">
+                                10h/mês
+                            </button>
+                            <button type="button" onclick="setCalcVolumePreset(20)" class="px-2.5 py-1 rounded-lg bg-[#080E1E] hover:bg-sky-500/20 text-sky-400 border border-slate-700 hover:border-sky-500/40 text-[11px] font-mono transition-all">
+                                20h/mês
+                            </button>
+                            <button type="button" onclick="setCalcVolumePreset(40)" class="px-2.5 py-1 rounded-lg bg-[#080E1E] hover:bg-sky-500/20 text-sky-400 border border-slate-700 hover:border-sky-500/40 text-[11px] font-mono transition-all">
+                                40h/mês
+                            </button>
                         </div>
                     </div>
 
@@ -982,6 +1289,87 @@
                 </div>
 
             </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO PERGUNTAS FREQUENTES B2B (RICH SNIPPETS GOOGLE FAQPAGE) -->
+    <section id="faq" class="py-24 bg-[#080E1E] border-b border-slate-800 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center space-y-4">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-bold uppercase tracking-wider">
+                    <i class="fa-solid fa-circle-question text-xs"></i>
+                    Dúvidas Frequentes B2B & Jurídico
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+                    Perguntas Frequentes sobre Contratação de LIBRAS
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">
+                    Tudo o que sua diretoria, setor jurídico e RH precisam saber sobre conformidade com a LBI, modalidades de atendimento e modelos de contratação.
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-[#0F172A] rounded-2xl border border-slate-800 p-6 space-y-3 hover:border-sky-500/40 transition-all">
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center shrink-0 text-sm font-bold border border-sky-500/30">
+                            01
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="text-base sm:text-lg font-bold text-white">
+                                Como funciona a contratação de intérprete de Libras corporativo?
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                A contratação é flexível e customizada para a sua necessidade. Atendemos tanto por <strong>demanda pontual</strong> (para congressos, convenções, webinars, treinamentos e assembleias) quanto por <strong>franquia mensal contínua</strong> (Central de SAC Web e Retentor Corporativo com SLA garantido). Nossa equipe realiza um alinhamento prévio do vocabulário técnico da sua organização e fornece integração simplificada por link direto ou API segura, sem exigir instalações complexas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-[#0F172A] rounded-2xl border border-slate-800 p-6 space-y-3 hover:border-sky-500/40 transition-all">
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 text-sm font-bold border border-emerald-500/30">
+                            02
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="text-base sm:text-lg font-bold text-white">
+                                O serviço atende à Lei Brasileira de Inclusão (LBI 13.146/2015)?
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                <strong>Sim, com 100% de conformidade técnica e jurídica.</strong> Todas as nossas soluções cumprem rigorosamente os artigos da Lei Federal nº 13.146/2015 (Estatuto da Pessoa com Deficiência) e do Decreto nº 5.626/2005. Ao contrário de avatares automáticos que cometem erros graves e geram autuações de "acessibilidade de fachada", nossos Intérpretes Mestres em Educação garantem acessibilidade comunicacional plena, emitindo relatórios de atendimento válidos para auditorias do Ministério Público e governança ESG.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-[#0F172A] rounded-2xl border border-slate-800 p-6 space-y-3 hover:border-sky-500/40 transition-all">
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 text-sm font-bold border border-amber-500/30">
+                            03
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="text-base sm:text-lg font-bold text-white">
+                                Como contratar a Central de Libras em formato de retentor mensal?
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                O <strong>Retentor Mensal Corporativo</strong> opera como uma franquia mensal de horas pré-contratadas (como 10h, 20h ou 40h/mês) com SLA de atendimento prioritário em plantão on-demand. Essa modalidade proporciona uma tarifa horária mais vantajosa, intérpretes dedicados e treinados na cultura da sua empresa, prioridade máxima em agendamentos urgentes e relatórios consolidados de uso ao final de cada mês.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Interna no FAQ -->
+            <div class="text-center pt-4">
+                <span class="text-xs text-slate-400">Tem uma dúvida técnica ou regulatória específica?</span>
+                <button onclick="triggerLeadOrWhatsApp('Dúvida sobre Contratação')" class="ml-2 text-xs font-bold text-sky-400 hover:text-sky-300 underline">
+                    Converse com nossa equipe no WhatsApp &rarr;
+                </button>
+            </div>
+
         </div>
     </section>
 
@@ -1183,6 +1571,7 @@
                         </li>
                         <li><a href="#calculadora" class="hover:text-sky-400 transition-colors">Calculadora de
                                 Investimento</a></li>
+                        <li><a href="#faq" class="hover:text-sky-400 transition-colors">Dúvidas Frequentes (FAQ)</a></li>
                     </ul>
                 </div>
 

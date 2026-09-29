@@ -1,6 +1,7 @@
 // --- 1. CONFIGURAÇÃO GLOBAL DE PRECIFICAÇÃO (PRICING_CONFIG) ---
 const PRICING_CONFIG = {
     hourlyRates: {
+        'retentor_mensal': 110.00,
         'instituicoes_ensino': 80.00,
         'central_sac': 95.00,
         'eventos_transmissoes': 180.00,
@@ -156,10 +157,23 @@ function closeLightbox() {
 }
 
 // --- 6. CALCULADORA INTERATIVA ("A PARTIR DE") ---
+function setCalcVolumePreset(val) {
+    const serviceSelect = document.getElementById('calcService');
+    const volumeInput = document.getElementById('calcVolume');
+    if (serviceSelect && serviceSelect.value !== 'retentor_mensal') {
+        serviceSelect.value = 'retentor_mensal';
+    }
+    if (volumeInput) {
+        volumeInput.value = val;
+        calcularInvestimento();
+    }
+}
+window.setCalcVolumePreset = setCalcVolumePreset;
+
 function calcularInvestimento() {
     const serviceKey = document.getElementById('calcService').value;
     const volumeInput = document.getElementById('calcVolume');
-    const volumeVal = parseInt(volumeInput.value, 10);
+    let volumeVal = parseInt(volumeInput.value, 10);
 
     const tierRadio = document.querySelector('input[name="calcTier"]:checked');
     const tierKey = tierRadio ? tierRadio.value : 'padrao';
@@ -169,6 +183,8 @@ function calcularInvestimento() {
 
     const volumeLabel = document.getElementById('volumeLabel');
     const volumeValueDisplay = document.getElementById('volumeValue');
+    const minVolumeLabel = document.getElementById('minVolumeLabel');
+    const maxVolumeLabel = document.getElementById('maxVolumeLabel');
     const summaryService = document.getElementById('summaryService');
     const summaryHourlyRate = document.getElementById('summaryHourlyRate');
     const summaryVolume = document.getElementById('summaryVolume');
@@ -178,13 +194,28 @@ function calcularInvestimento() {
     let unitName = "atendimentos/mês";
     let serviceTitle = "Central Libras SAC Web";
 
-    if (serviceKey === 'instituicoes_ensino') {
+    if (serviceKey === 'retentor_mensal') {
+        unitName = "horas/mês de franquia";
+        serviceTitle = "Retentor Mensal Corporativo (Plantão + SLA)";
+        volumeLabel.textContent = "2. Franquia Mensal de Horas (Plantão + SLA)";
+        volumeInput.min = 10;
+        volumeInput.max = 80;
+        volumeInput.step = 10;
+        if (minVolumeLabel) minVolumeLabel.textContent = "10h";
+        if (maxVolumeLabel) maxVolumeLabel.textContent = "80h";
+        if (volumeVal > 80 || volumeVal < 10) {
+            volumeVal = 20;
+            volumeInput.value = 20;
+        }
+    } else if (serviceKey === 'instituicoes_ensino') {
         unitName = "horas/mês de suporte";
         serviceTitle = "Acessibilidade Educacional";
         volumeLabel.textContent = "2. Carga Horária Acadêmica (Horas/mês)";
         volumeInput.min = 10;
         volumeInput.max = 160;
         volumeInput.step = 10;
+        if (minVolumeLabel) minVolumeLabel.textContent = "10h";
+        if (maxVolumeLabel) maxVolumeLabel.textContent = "160h";
     } else if (serviceKey === 'central_sac') {
         unitName = "atendimentos/mês";
         serviceTitle = "Central Libras SAC Web";
@@ -192,6 +223,8 @@ function calcularInvestimento() {
         volumeInput.min = 10;
         volumeInput.max = 500;
         volumeInput.step = 10;
+        if (minVolumeLabel) minVolumeLabel.textContent = "10";
+        if (maxVolumeLabel) maxVolumeLabel.textContent = "500";
     } else if (serviceKey === 'eventos_transmissoes') {
         unitName = "horas de evento";
         serviceTitle = "Interpretação de Eventos";
@@ -199,6 +232,8 @@ function calcularInvestimento() {
         volumeInput.min = 2;
         volumeInput.max = 40;
         volumeInput.step = 2;
+        if (minVolumeLabel) minVolumeLabel.textContent = "2h";
+        if (maxVolumeLabel) maxVolumeLabel.textContent = "40h";
     } else if (serviceKey === 'traducao_audiovisual') {
         unitName = "minutos de vídeo";
         serviceTitle = "Tradução & Legendagem";
@@ -206,6 +241,8 @@ function calcularInvestimento() {
         volumeInput.min = 5;
         volumeInput.max = 200;
         volumeInput.step = 5;
+        if (minVolumeLabel) minVolumeLabel.textContent = "5min";
+        if (maxVolumeLabel) maxVolumeLabel.textContent = "200min";
     } else if (serviceKey === 'consultoria_rh') {
         unitName = "colaboradores treinados";
         serviceTitle = "Consultoria & Treinamento RH";
@@ -213,6 +250,8 @@ function calcularInvestimento() {
         volumeInput.min = 10;
         volumeInput.max = 200;
         volumeInput.step = 10;
+        if (minVolumeLabel) minVolumeLabel.textContent = "10";
+        if (maxVolumeLabel) maxVolumeLabel.textContent = "200";
     }
 
     volumeValueDisplay.textContent = `${volumeVal} ${unitName.split(' ')[0]}`;
@@ -309,7 +348,12 @@ function executeWhatsAppRedirect(name, email, company) {
 
     let priceRaw = document.getElementById('calcPrice').innerText.replace('\n', ' ');
 
-    const msg = `Ol%C3%A1%20Prof.%20Osvaldo!%20Solicito%20proposta%20formal%20para%20${encodeURIComponent(serviceName)}.%20Carga%20estimada%3A%20${encodeURIComponent(volumeText)}%20(${encodeURIComponent(tierText)}).%20Estimativa%20do%20site%3A%20${encodeURIComponent(priceRaw)}.%20Nome%3A%20${encodeURIComponent(name)}%20%7C%20Empresa%3A%20${encodeURIComponent(company)}%20%7C%20E-mail%3A%20${encodeURIComponent(email)}.`;
+    let msg = '';
+    if (serviceName.toLowerCase().includes('retentor')) {
+        msg = `Ol%C3%A1%20Prof.%20Osvaldo!%20Solicito%20proposta%20formal%20para%20o%20Retentor%20Mensal%20Corporativo%20com%20Franquia%20de%20${encodeURIComponent(volumeText)}%20(${encodeURIComponent(tierText)})%20com%20Plant%C3%A3o%20On-Demand%20e%20SLA%20%C3%81gil.%20Estimativa%3A%20${encodeURIComponent(priceRaw)}.%20Nome%3A%20${encodeURIComponent(name)}%20%7C%20Empresa%3A%20${encodeURIComponent(company)}%20%7C%20E-mail%3A%20${encodeURIComponent(email)}.`;
+    } else {
+        msg = `Ol%C3%A1%20Prof.%20Osvaldo!%20Solicito%20proposta%20formal%20para%20${encodeURIComponent(serviceName)}.%20Carga%20estimada%3A%20${encodeURIComponent(volumeText)}%20(${encodeURIComponent(tierText)}).%20Estimativa%20do%20site%3A%20${encodeURIComponent(priceRaw)}.%20Nome%3A%20${encodeURIComponent(name)}%20%7C%20Empresa%3A%20${encodeURIComponent(company)}%20%7C%20E-mail%3A%20${encodeURIComponent(email)}.`;
+    }
 
     window.open(`https://wa.me/5563992581001?text=${msg}`, '_blank');
 }
@@ -395,14 +439,14 @@ async function fetchDirectoryManifest(manifestPath, fallbackArray, transformFn) 
 const CORPORATE_LOGOS = [
     { name: "UniAcademia", src: "assets/images/corps/UniAcademia.png" },
     { name: "Coca-Cola", src: "assets/images/corps/cocacola.png" },
-    { name: "Estação das Artes", src: "assets/images/corps/estacao-das-artes.png" },
-    { name: "HQ Default", src: "assets/images/corps/hqdefault.jpg" },
+    { name: "Estação das Artes / Cinema Alameda", src: "assets/images/corps/estacao-das-artes.png" },
     { name: "IMEPP", src: "assets/images/corps/imepp.png" },
-    { name: "BD Juiz de Fora", src: "assets/images/corps/logo-bd-jf.png" },
-    { name: "Câmara Municipal", src: "assets/images/corps/logo-camara-jf.png" },
-    { name: "TV Câmara", src: "assets/images/corps/ifto-gurupi.jpg" },
-    { name: "TV Câmara", src: "assets/images/corps/Logo_da_UFJF.png" },
-    { name: "TV Câmara", src: "assets/images/corps/orbenk.jpg" }
+    { name: "B&D Juiz de Fora", src: "assets/images/corps/logo-bd-jf.png" },
+    { name: "Câmara Municipal de Juiz de Fora", src: "assets/images/corps/logo-camara-jf.png" },
+    { name: "IFTO - Instituto Federal", src: "assets/images/corps/ifto-gurupi.jpg" },
+    { name: "UFJF - Universidade Federal de Juiz de Fora", src: "assets/images/corps/Logo_da_UFJF.png" },
+    { name: "Orbenk", src: "assets/images/corps/orbenk.jpg" },
+    { name: "TV Câmara", src: "assets/images/corps/tv-camara.jpg" }
 ];
 
 async function renderCorporateMarquee() {
@@ -426,9 +470,9 @@ async function renderCorporateMarquee() {
     const list = [...logoFiles, ...logoFiles, ...logoFiles, ...logoFiles];
 
     track.innerHTML = list.map(item => `
-                <div class="flex items-center justify-center shrink-0 px-3 logo-card-wrapper">
-                    <div class="bg-white px-5 py-3 rounded-2xl border border-slate-200 shadow-md flex items-center justify-center h-14 md:h-16 w-36 sm:w-44 hover:shadow-sky-500/30 hover:scale-105 transition-all duration-300 group/logo overflow-hidden">
-                        <img src="${item.src}" alt="${sanitizeHTML(item.name)}" onerror="this.closest('.logo-card-wrapper').remove()" class="h-8 md:h-10 max-h-full w-auto object-contain max-w-full">
+                <div class="flex items-center justify-center shrink-0 px-3 sm:px-4 logo-card-wrapper">
+                    <div class="bg-white px-6 py-3.5 rounded-2xl border border-slate-200/90 shadow-lg shadow-black/20 flex items-center justify-center h-20 sm:h-24 w-52 sm:w-64 md:w-72 hover:shadow-2xl hover:shadow-sky-500/25 hover:border-sky-400 hover:scale-[1.04] transition-all duration-300 group/logo overflow-hidden cursor-pointer" title="${sanitizeHTML(item.name)}">
+                        <img src="${item.src}" alt="${sanitizeHTML(item.name)}" onerror="this.closest('.logo-card-wrapper').remove()" class="h-12 sm:h-16 max-h-full w-auto object-contain max-w-[90%] filter contrast-105 transition-transform duration-300 group-hover/logo:scale-105">
                     </div>
                 </div>
             `).join('');
@@ -492,6 +536,20 @@ const DEMO_VIDEOS = [
     }
 ];
 
+// --- 11.1 LITE YOUTUBE FACADE (CARREGAMENTO SOB DEMANDA PARA PAGESPEED) ---
+function loadYouTubeIframe(playerId, youtubeId, title) {
+    const container = document.getElementById(`player-${playerId}`);
+    if (!container) return;
+    container.innerHTML = `
+        <iframe src="https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0" 
+                title="${title}" 
+                class="w-full h-full aspect-video border-0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+    `;
+}
+window.loadYouTubeIframe = loadYouTubeIframe;
+
 function renderServicesVideoGrid() {
     const grid = document.getElementById('servicesVideoGrid');
     if (!grid) return;
@@ -501,29 +559,39 @@ function renderServicesVideoGrid() {
 
         if (item.type === 'youtube' && item.youtubeId) {
             mediaHTML = `
-                        <iframe src="https://www.youtube-nocookie.com/embed/${item.youtubeId}" title="${sanitizeHTML(item.title)}" loading="lazy" class="w-full h-full aspect-video border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    `;
+                <div id="player-${item.id}" class="relative w-full h-full aspect-video bg-slate-950 flex items-center justify-center cursor-pointer group/player overflow-hidden" onclick="loadYouTubeIframe('${item.id}', '${item.youtubeId}', '${sanitizeHTML(item.title)}')">
+                    <img src="https://i.ytimg.com/vi/${item.youtubeId}/hqdefault.jpg" alt="${sanitizeHTML(item.title)}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover/player:scale-105 filter brightness-90 group-hover/player:brightness-100">
+                    <div class="absolute inset-0 bg-slate-950/30 group-hover/player:bg-slate-950/10 transition-colors flex items-center justify-center">
+                        <div class="w-14 h-14 rounded-full bg-red-600/95 text-white flex items-center justify-center text-xl shadow-xl group-hover/player:bg-red-600 group-hover/player:scale-110 transition-all duration-300">
+                            <i class="fa-solid fa-play ml-0.5"></i>
+                        </div>
+                    </div>
+                    <span class="absolute bottom-2.5 right-2.5 bg-black/80 text-white text-[10px] font-mono px-2.5 py-1 rounded backdrop-blur-sm flex items-center gap-1.5 border border-white/10">
+                        <i class="fa-brands fa-youtube text-red-500"></i> Assistir Vídeo
+                    </span>
+                </div>
+            `;
         } else {
             mediaHTML = `
-                        <video src="${item.src}" type="video/mp4" poster="${item.poster || 'assets/images/video-poster.jpg'}" class="w-full h-full aspect-video object-cover" controls playsinline preload="metadata"></video>
-                    `;
+                <video src="${item.src}" type="video/mp4" poster="${item.poster || 'assets/images/video-poster.jpg'}" class="w-full h-full aspect-video object-cover" controls playsinline preload="none"></video>
+            `;
         }
 
         return `
-                    <div class="bg-[#0F172A] rounded-2xl overflow-hidden border border-slate-800 hover:border-sky-500/40 shadow-lg transition-all duration-300 group flex flex-col justify-between">
-                        <div class="relative bg-slate-950 aspect-video overflow-hidden">
-                            ${mediaHTML}
-                        </div>
-                        <div class="p-5 bg-[#0F172A] space-y-2 border-t border-slate-800">
-                            <div class="flex items-center justify-between">
-                                <span class="px-2.5 py-0.5 rounded-full bg-[#0B132B] text-sky-300 text-[10px] font-semibold border border-slate-700">${sanitizeHTML(item.category)}</span>
-                                <span class="text-[10px] text-sky-400 font-mono flex items-center gap-1"><i class="fa-brands fa-youtube text-red-500"></i> ${sanitizeHTML(item.badge)}</span>
-                            </div>
-                            <h3 class="text-base font-bold text-white group-hover:text-sky-400 transition-colors">${sanitizeHTML(item.title)}</h3>
-                            <p class="text-xs text-slate-300 leading-relaxed">${sanitizeHTML(item.description)}</p>
-                        </div>
+            <div class="bg-[#0F172A] rounded-2xl overflow-hidden border border-slate-800 hover:border-sky-500/40 shadow-lg transition-all duration-300 group flex flex-col justify-between">
+                <div class="relative bg-slate-950 aspect-video overflow-hidden">
+                    ${mediaHTML}
+                </div>
+                <div class="p-5 bg-[#0F172A] space-y-2 border-t border-slate-800">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full bg-[#0B132B] text-sky-300 text-[10px] font-semibold border border-slate-700">${sanitizeHTML(item.category)}</span>
+                        <span class="text-[10px] text-sky-400 font-mono flex items-center gap-1"><i class="fa-brands fa-youtube text-red-500"></i> ${sanitizeHTML(item.badge)}</span>
                     </div>
-                `;
+                    <h3 class="text-base font-bold text-white group-hover:text-sky-400 transition-colors">${sanitizeHTML(item.title)}</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">${sanitizeHTML(item.description)}</p>
+                </div>
+            </div>
+        `;
     }).join('');
 }
 
