@@ -51,11 +51,11 @@ document.querySelectorAll('.mobile-link').forEach(link => {
     });
 });
 
-// --- 4. DEMO VIDEO SHOWCASE PLAYER ---
+// --- 4. DEMO VIDEO SHOWCASE PLAYER (SEAMLESS YOUTUBE & LOCAL SUPPORT) ---
 const videoElement = document.getElementById('librasDemoVideo');
 const videoOverlay = document.getElementById('videoOverlay');
 const videoTitleDisplay = document.getElementById('videoTitleDisplay');
-const videoPathDisplay = document.getElementById('videoPathDisplay');
+const videoCategoryBadge = document.getElementById('videoCategoryBadge');
 
 function playDemoVideo() {
     if (videoElement) {
@@ -88,33 +88,49 @@ function changeDemoVideo(type, elementBtn) {
         elementBtn.classList.remove('border-slate-800');
     }
 
-    let realVideoPath = "assets/videos/demonstracao-sac-libras.mp4";
+    const container = document.getElementById('videoContainer');
+    if (!container) return;
+
+    let youtubeId = 'ofSwbP4dN34';
     let videoTitle = "Demonstração: Central de Atendimento SAC";
+    let categoryText = "SAC & Atendimento On-Demand";
 
     if (type === 'sac') {
-        realVideoPath = "assets/videos/demonstracao-sac-libras.mp4";
+        youtubeId = 'ofSwbP4dN34';
         videoTitle = "Demonstração: Central de Atendimento SAC";
+        categoryText = "SAC & Atendimento On-Demand";
     } else if (type === 'eventos') {
-        realVideoPath = "assets/videos/demonstracao-evento.mp4";
+        youtubeId = 'Q2M-EY789xQ';
         videoTitle = "Demonstração: Interpretação de Eventos ao Vivo";
+        categoryText = "Eventos, Lives e Conferências";
     } else if (type === 'ead') {
-        realVideoPath = "assets/videos/demonstracao-ead.mp4";
-        videoTitle = "Demonstração: Tradução de Cursos EAD";
+        youtubeId = 'BdA5100ZBQg';
+        videoTitle = "Demonstração: Tradução de Cursos EAD e Treinamentos";
+        categoryText = "Educação & Materiais Digitais";
+    } else if (type === 'metodologia') {
+        // Local video
+        container.innerHTML = `
+            <video id="librasDemoVideo" controls autoplay playsinline class="w-full h-full aspect-video object-cover">
+                <source src="assets/videos/65cf1137395f4bbca99ea87541ea65a1.mp4" type="video/mp4">
+                Seu navegador não suporta reprodução de vídeo.
+            </video>
+        `;
+        if (videoTitleDisplay) videoTitleDisplay.textContent = "Prática de Metodologia Bilíngue";
+        if (videoCategoryBadge) videoCategoryBadge.textContent = "Ensino & Capacitação Prática";
+        return;
     }
 
-    if (videoElement) {
-        videoElement.pause();
-        videoElement.src = realVideoPath;
-        videoElement.load();
+    // Embed YouTube Nocookie Player
+    container.innerHTML = `
+        <iframe src="https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0" 
+                title="${videoTitle}" 
+                class="w-full h-full aspect-video border-0 rounded-2xl" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+    `;
 
-        if (videoTitleDisplay) videoTitleDisplay.textContent = videoTitle;
-        if (videoPathDisplay) videoPathDisplay.textContent = realVideoPath;
-
-        if (videoOverlay) {
-            videoOverlay.style.display = 'flex';
-            videoOverlay.style.opacity = '1';
-        }
-    }
+    if (videoTitleDisplay) videoTitleDisplay.textContent = videoTitle;
+    if (videoCategoryBadge) videoCategoryBadge.textContent = categoryText;
 }
 
 // --- 5. CONTROLE DA GALERIA DE BASTIDORES & PROVA SOCIAL ---
@@ -316,8 +332,29 @@ function closeLeadModal() {
     if (modal) modal.classList.add('hidden');
 }
 
+function trackConversion(eventName, eventData = {}) {
+    if (window.fbq) {
+        try { fbq('trackCustom', eventName, eventData); } catch (e) {}
+    }
+    try {
+        let events = JSON.parse(localStorage.getItem('fox_lead_events') || '[]');
+        events.unshift({ event: eventName, data: eventData, at: new Date().toISOString() });
+        if (events.length > 50) events = events.slice(0, 50);
+        localStorage.setItem('fox_lead_events', JSON.stringify(events));
+    } catch (e) {}
+}
+window.trackConversion = trackConversion;
+
 function submitLeadModalForm(e) {
     e.preventDefault();
+
+    // Honeypot anti-spam check
+    const hp = document.getElementById('lead_hp');
+    if (hp && hp.value.trim() !== '') {
+        console.warn('Spam submission detected and blocked.');
+        closeLeadModal();
+        return;
+    }
 
     const name = sanitizeHTML(document.getElementById('leadName').value.trim());
     const email = sanitizeHTML(document.getElementById('leadEmail').value.trim());
@@ -334,6 +371,8 @@ function submitLeadModalForm(e) {
     if (document.getElementById('contactEmail')) document.getElementById('contactEmail').value = email;
     if (document.getElementById('contactCompany')) document.getElementById('contactCompany').value = company;
 
+    trackConversion('LeadModalIdentified', { name, company, email });
+
     closeLeadModal();
     executeWhatsAppRedirect(name, email, company);
 }
@@ -342,6 +381,8 @@ function executeWhatsAppRedirect(name, email, company) {
     if (window.fbq) {
         try { fbq('track', 'Lead', { content_name: 'Solicitacao_Proposta_WhatsApp' }); } catch (err) { }
     }
+    trackConversion('WhatsAppClick', { service: pendingRequestedService || 'Calculadora' });
+
     const serviceName = pendingRequestedService || document.getElementById('summaryService').textContent;
     const volumeText = document.getElementById('summaryVolume').textContent;
     const tierText = document.getElementById('summaryTier').textContent;
@@ -350,9 +391,9 @@ function executeWhatsAppRedirect(name, email, company) {
 
     let msg = '';
     if (serviceName.toLowerCase().includes('retentor')) {
-        msg = `Ol%C3%A1%20Prof.%20Osvaldo!%20Solicito%20proposta%20formal%20para%20o%20Retentor%20Mensal%20Corporativo%20com%20Franquia%20de%20${encodeURIComponent(volumeText)}%20(${encodeURIComponent(tierText)})%20com%20Plant%C3%A3o%20On-Demand%20e%20SLA%20%C3%81gil.%20Estimativa%3A%20${encodeURIComponent(priceRaw)}.%20Nome%3A%20${encodeURIComponent(name)}%20%7C%20Empresa%3A%20${encodeURIComponent(company)}%20%7C%20E-mail%3A%20${encodeURIComponent(email)}.`;
+        msg = `Ol%C3%A1%20Prof.%20Osvaldo!%20Solicito%20proposta%20formal%20para%20o%20Retentor%20Mensal%20Corporativo%20com%20Franquia%20de%20${encodeURIComponent(volumeText)}%20(${encodeURIComponent(tierText)})%20com%20Plant%C3%A3o%20On-Demand%20e%20SLA%20%C3%81gil.%20Estimativa%3A%20${encodeURIComponent(priceRaw)}%20(sujeita%20%C3%A0%20valida%C3%A7%C3%A3o%20t%C3%A9cnica).%20Nome%3A%20${encodeURIComponent(name)}%20%7C%20Empresa%3A%20${encodeURIComponent(company)}%20%7C%20E-mail%3A%20${encodeURIComponent(email)}.`;
     } else {
-        msg = `Ol%C3%A1%20Prof.%20Osvaldo!%20Solicito%20proposta%20formal%20para%20${encodeURIComponent(serviceName)}.%20Carga%20estimada%3A%20${encodeURIComponent(volumeText)}%20(${encodeURIComponent(tierText)}).%20Estimativa%20do%20site%3A%20${encodeURIComponent(priceRaw)}.%20Nome%3A%20${encodeURIComponent(name)}%20%7C%20Empresa%3A%20${encodeURIComponent(company)}%20%7C%20E-mail%3A%20${encodeURIComponent(email)}.`;
+        msg = `Ol%C3%A1%20Prof.%20Osvaldo!%20Solicito%20proposta%20formal%20para%20${encodeURIComponent(serviceName)}.%20Carga%20estimada%3A%20${encodeURIComponent(volumeText)}%20(${encodeURIComponent(tierText)}).%20Estimativa%20do%20site%3A%20${encodeURIComponent(priceRaw)}%20(sujeita%20%C3%A0%20valida%C3%A7%C3%A3o%20t%C3%A9cnica).%20Nome%3A%20${encodeURIComponent(name)}%20%7C%20Empresa%3A%20${encodeURIComponent(company)}%20%7C%20E-mail%3A%20${encodeURIComponent(email)}.`;
     }
 
     window.open(`https://wa.me/5563992581001?text=${msg}`, '_blank');
@@ -361,6 +402,19 @@ function executeWhatsAppRedirect(name, email, company) {
 // --- 8. FORMULÁRIO DE CONTATO B2B ---
 function handleContactSubmit(e) {
     e.preventDefault();
+
+    // Honeypot anti-spam check
+    const hp = document.getElementById('contact_hp');
+    if (hp && hp.value.trim() !== '') {
+        console.warn('Spam submission detected and blocked.');
+        return;
+    }
+
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+    }
 
     const name = sanitizeHTML(document.getElementById('contactName').value.trim());
     const email = sanitizeHTML(document.getElementById('contactEmail').value.trim());
@@ -374,8 +428,14 @@ function handleContactSubmit(e) {
     if (!name || !email || !phone || !company || !message) {
         statusDiv.className = "p-4 rounded-xl text-xs font-medium bg-red-950/80 border border-red-500/40 text-red-300 block";
         statusDiv.textContent = "Por favor, preencha todos os campos obrigatórios (*).";
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+        }
         return;
     }
+
+    trackConversion('ContactFormSubmitted', { name, company, email, interest });
 
     statusDiv.className = "p-4 rounded-xl text-xs font-medium bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 block space-y-2";
     statusDiv.innerHTML = `
@@ -383,10 +443,16 @@ function handleContactSubmit(e) {
                     <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
                     <span>Mensagem processada com sucesso!</span>
                 </div>
-                <div>Obrigado, ${name}. Nossa equipe técnica entrará em contato em breve no e-mail <strong>${email}</strong>.</div>
+                <div>Obrigado, ${name}. Nossa equipe técnica entrará em contato em breve no e-mail <strong>${email}</strong>. Conectando agora ao WhatsApp corporativo...</div>
             `;
 
-    executeWhatsAppRedirect(name, email, company);
+    setTimeout(() => {
+        executeWhatsAppRedirect(name, email, company);
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+        }
+    }, 1200);
 }
 
 // --- 9. MODAIS (CV & LGPD) ---

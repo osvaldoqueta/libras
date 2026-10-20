@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOX LIBRAS — Brand Guidelines & Apresentação de Identidade Visual</title>
+
+    <meta name="description"
+        content="Painel Técnico de Branding: Apresentação comparativa dos 3 conceitos de identidade visual da FOX LIBRAS, tokens cromáticos e especificações de design system.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Favicon Oficial -->
+    <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
+
+    <!-- Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#0B2D5B',
+                            deep: '#071B36',
+                            orange: '#FF7A00',
+                            cyan: '#00B4E6',
+                            slate: '#1E293B',
+                            light: '#F2F5F8'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome 6.5.1 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-[#071B36] text-slate-100 font-sans antialiased selection:bg-[#FF7A00] selection:text-white min-h-screen flex flex-col justify-between">
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-[#071B36]/95 backdrop-blur-md border-b border-slate-800 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="flex items-center gap-3 group" title="Voltar ao Site Principal">
+                    <img src="assets/brand/logo-horizontal.svg" alt="FOX LIBRAS" class="h-10 w-auto object-contain">
+                </a>
+                <span class="hidden sm:inline px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 text-xs font-semibold">
+                    Painel Oficial de Branding 2026
+                </span>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Voltar ao Site Principal</span>
+                </a>
+                <a href="marketing-hub.html" class="px-4 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs font-bold border border-amber-500/30 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <span>Hub de Marketing</span>
+                </a>
+                <a href="marketing/guia-de-marca.md" target="_blank" class="px-4 py-2 rounded-xl bg-[#0B2D5B] hover:bg-sky-600 text-white text-xs font-bold transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span class="hidden md:inline">Manual Markdown</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Header -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-4">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0B2D5B] border border-sky-500/30 text-xs font-bold uppercase tracking-wider text-sky-400">
+                <i class="fa-solid fa-palette"></i>
+                Identidade Visual & Estratégia de Marca B2B
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+                Nova Identidade Visual da <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-white to-[#FF7A00]">FOX LIBRAS</span>
+            </h1>
+            <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                Desenvolvimento estratégico de 3 conceitos distintos, matriz técnica de avaliação, diretrizes cromáticas WCAG 2.2 e biblioteca vetorial oficial.
+            </p>
+            <div class="pt-2 text-xs text-slate-400 font-mono">
+                Slogan Oficial Homologado: <strong class="text-white">"Soluções em Acessibilidade"</strong>
+            </div>
+        </div>
+
+        <!-- SEÇÃO: OS 3 CONCEITOS COMPARADOS -->
+        <section class="space-y-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between border-b border-slate-800 pb-4 gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-white">Os 3 Conceitos Desenvolvidos</h2>
+                    <p class="text-xs text-slate-400">Cada proposta atende a uma intenção estratégica e nicho mercadológico específico.</p>
+                </div>
+                <!-- Concept Selector Tabs -->
+                <div class="flex gap-2 p-1.5 bg-[#0B2D5B] rounded-xl border border-slate-700">
+                    <button onclick="switchConceptTab('conceptA', this)" class="concept-tab-btn active px-4 py-2 rounded-lg text-xs font-bold bg-[#FF7A00] text-white shadow-md transition-all">
+                        Versão Horizontal
+                    </button>
+                    <button onclick="switchConceptTab('conceptB', this)" class="concept-tab-btn px-4 py-2 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition-all">
+                        Versão Vertical
+                    </button>
+                    <button onclick="switchConceptTab('conceptC', this)" class="concept-tab-btn px-4 py-2 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition-all">
+                        Símbolo & Emblema
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card Conceito A: VERSÃO HORIZONTAL OFICIAL -->
+            <div id="tabConceptA" class="concept-content-tab space-y-6">
+                <div class="bg-[#0B2D5B]/40 rounded-3xl p-6 sm:p-10 border-2 border-emerald-500/50 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-4 right-4">
+                        <span class="px-3.5 py-1.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-xs font-bold flex items-center gap-1.5">
+                            <i class="fa-solid fa-check-circle"></i>
+                            Identidade Oficial Homologada
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7 bg-[#071B36] p-6 rounded-2xl border border-slate-800 flex items-center justify-center">
+                            <img src="assets/brand/concepts/concept-a-fox-signature.svg" alt="Identidade Oficial: Versão Horizontal" class="w-full max-w-lg h-auto">
+                        </div>
+
+                        <div class="lg:col-span-5 space-y-4">
+                            <div class="inline-block px-3 py-1 rounded-md bg-[#071B36] text-xs font-bold text-amber-400 border border-slate-800">
+                                IDENTIDADE OFICIAL — VERSÃO HORIZONTAL
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Humano, Memorável, Acolhedor e Profissional</h3>
+                            <p class="text-sm text-slate-300 leading-relaxed">
+                                A marca oficial da FOX LIBRAS combina o emblema emblemático da raposa com mãos sinalizantes em azul-ciano e laranja, com o lettering em alta autoridade e o slogan oficial <strong>Soluções em Acessibilidade</strong>.
+                            </p>
+                            <div class="space-y-2 pt-2 border-t border-slate-800 text-xs text-slate-300">
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> <strong>Símbolo:</strong> Raposa laranja com focinho branco + mão ciano em acolhimento</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> <strong>Escalabilidade:</strong> Aplicação principal para cabeçalhos, sites e papelaria</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> <strong>Slogan Oficial:</strong> Soluções em Acessibilidade</div>
+                            </div>
+                            <div class="pt-4 flex flex-wrap gap-3">
+                                <a href="assets/brand/logo-horizontal.svg" download class="px-4 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold flex items-center gap-2 transition-all">
+                                    <i class="fa-solid fa-download"></i> Baixar SVG Horizontal
+                                </a>
+                                <a href="assets/brand/logo-vertical.svg" download class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold flex items-center gap-2 transition-all">
+                                    <i class="fa-solid fa-download"></i> Baixar SVG Vertical
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Conceito B: VERSÃO VERTICAL OFICIAL -->
+            <div id="tabConceptB" class="concept-content-tab hidden space-y-6">
+                <div class="bg-[#0B2D5B]/40 rounded-3xl p-6 sm:p-10 border border-slate-800 shadow-2xl relative overflow-hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7 bg-[#071B36] p-6 rounded-2xl border border-slate-800 flex items-center justify-center">
+                            <img src="assets/brand/concepts/concept-b-fox-connect.svg" alt="Identidade Oficial: Versão Vertical" class="w-full max-w-lg h-auto">
+                        </div>
+
+                        <div class="lg:col-span-5 space-y-4">
+                            <div class="inline-block px-3 py-1 rounded-md bg-[#071B36] text-xs font-bold text-sky-400 border border-slate-800">
+                                IDENTIDADE OFICIAL — VERSÃO VERTICAL
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Centralizada, Imponente e Equilibrada</h3>
+                            <p class="text-sm text-slate-300 leading-relaxed">
+                                Disposição com o emblema oficial superior centralizado, seguido da tipografia institucional e do slogan. Ideal para crachás, uniformes, banners verticais, totens de eventos e assinaturas de e-mail.
+                            </p>
+                            <div class="space-y-2 pt-2 border-t border-slate-800 text-xs text-slate-300">
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-400"></i> <strong>Símbolo:</strong> Emblema oficial superior em destaque</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-400"></i> <strong>Sensação:</strong> Solidez institucional, prestígio e autoridade pedagógica</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-400"></i> <strong>Aplicações:</strong> Crachás, totens, credenciamentos e mídias verticais</div>
+                            </div>
+                            <div class="pt-4">
+                                <a href="assets/brand/logo-vertical.svg" download class="px-4 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold inline-flex items-center gap-2 transition-all">
+                                    <i class="fa-solid fa-download"></i> Baixar SVG Versão Vertical
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Conceito C: SÍMBOLO & EMBLEMA -->
+            <div id="tabConceptC" class="concept-content-tab hidden space-y-6">
+                <div class="bg-[#0B2D5B]/40 rounded-3xl p-6 sm:p-10 border border-slate-800 shadow-2xl relative overflow-hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7 bg-[#071B36] p-6 rounded-2xl border border-slate-800 flex items-center justify-center">
+                            <img src="assets/brand/concepts/concept-c-fox-inclui.svg" alt="Identidade Oficial: Símbolo e Emblema" class="w-full max-w-lg h-auto">
+                        </div>
+
+                        <div class="lg:col-span-5 space-y-4">
+                            <div class="inline-block px-3 py-1 rounded-md bg-[#071B36] text-xs font-bold text-[#FF7A00] border border-slate-800">
+                                IDENTIDADE OFICIAL — SÍMBOLO & EMBLEMA
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Ícone Isolado, Favicon e Selo de Acessibilidade</h3>
+                            <p class="text-sm text-slate-300 leading-relaxed">
+                                O símbolo autônomo da raposa acolhida pela mão sinalizante. Desenvolvido para funcionar com legibilidade instantânea mesmo em pequenas escalas (16px, 32px), avatares de redes sociais e botões de chat on-demand.
+                            </p>
+                            <div class="space-y-2 pt-2 border-t border-slate-800 text-xs text-slate-300">
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-[#FF7A00]"></i> <strong>Símbolo:</strong> Raposa + mão sinalizante em traço autêntico</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-[#FF7A00]"></i> <strong>Sensação:</strong> Acolhimento, agilidade e inclusão humana</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-[#FF7A00]"></i> <strong>Aplicações:</strong> Favicon, app icon, botão flutuante SAC, selo de laudo</div>
+                            </div>
+                            <div class="pt-4">
+                                <a href="assets/brand/logo-symbol.svg" download class="px-4 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold inline-flex items-center gap-2 transition-all">
+                                    <i class="fa-solid fa-download"></i> Baixar SVG Símbolo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: MATRIZ DE COMPARAÇÃO & PONTUAÇÃO -->
+        <section class="space-y-6">
+            <div>
+                <h2 class="text-2xl font-bold text-white">Matriz Comparativa Técnica & Negocial</h2>
+                <p class="text-xs text-slate-400">Avaliação baseada em critérios objetivos de design, escalabilidade, acessibilidade e adequação ao mercado B2B.</p>
+            </div>
+
+            <div class="bg-[#0B2D5B]/30 rounded-2xl border border-slate-800 overflow-x-auto shadow-xl">
+                <table class="w-full text-left text-xs border-collapse">
+                    <thead>
+                        <tr class="border-b border-slate-800 text-slate-400 uppercase bg-[#071B36]">
+                            <th class="py-3.5 px-4 font-semibold">Critério de Avaliação</th>
+                            <th class="py-3.5 px-4 font-semibold text-emerald-400">Versão Horizontal (Principal)</th>
+                            <th class="py-3.5 px-4 font-semibold text-sky-400">Versão Vertical</th>
+                            <th class="py-3.5 px-4 font-semibold text-amber-400">Símbolo & Favicon</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800 text-slate-200">
+                        <tr>
+                            <td class="py-3 px-4 font-semibold text-white">Memorabilidade da Marca</td>
+                            <td class="py-3 px-4 text-emerald-400 font-bold">9.8 / 10</td>
+                            <td class="py-3 px-4">8.5 / 10</td>
+                            <td class="py-3 px-4">8.9 / 10</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-semibold text-white">Legibilidade Tipográfica</td>
+                            <td class="py-3 px-4 text-emerald-400 font-bold">9.7 / 10</td>
+                            <td class="py-3 px-4">9.2 / 10</td>
+                            <td class="py-3 px-4">9.0 / 10</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-semibold text-white">Diferenciação Visual vs Concorrentes</td>
+                            <td class="py-3 px-4 text-emerald-400 font-bold">9.9 / 10</td>
+                            <td class="py-3 px-4">8.8 / 10</td>
+                            <td class="py-3 px-4">8.7 / 10</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-semibold text-white">Escalabilidade (Favicon / 16px)</td>
+                            <td class="py-3 px-4 text-emerald-400 font-bold">9.5 / 10</td>
+                            <td class="py-3 px-4">9.4 / 10</td>
+                            <td class="py-3 px-4">8.4 / 10</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-semibold text-white">Contraste & Acessibilidade WCAG 2.2</td>
+                            <td class="py-3 px-4 text-emerald-400 font-bold">9.9 / 10</td>
+                            <td class="py-3 px-4">9.6 / 10</td>
+                            <td class="py-3 px-4">9.5 / 10</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-semibold text-white">Adequação ao Mercado B2B Corporativo</td>
+                            <td class="py-3 px-4 text-emerald-400 font-bold">9.8 / 10</td>
+                            <td class="py-3 px-4">9.5 / 10</td>
+                            <td class="py-3 px-4">8.6 / 10</td>
+                        </tr>
+                        <tr class="bg-[#071B36] font-bold text-sm">
+                            <td class="py-4 px-4 text-white">MÉDIA GERAL PONDERADA</td>
+                            <td class="py-4 px-4 text-emerald-400 text-base">9.77 (Vencedor)</td>
+                            <td class="py-4 px-4 text-sky-400">9.17</td>
+                            <td class="py-4 px-4 text-amber-400">8.85</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: PALETA CROMÁTICA & DESIGN TOKENS -->
+        <section class="space-y-6">
+            <div>
+                <h2 class="text-2xl font-bold text-white">Design Tokens Cromáticos (WCAG 2.2 AA)</h2>
+                <p class="text-xs text-slate-400">Paleta oficial calibrada para contraste corporativo e conversão máxima.</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="bg-[#0B2D5B] p-4 rounded-2xl border border-slate-700 space-y-2">
+                    <div class="h-14 rounded-xl bg-[#0B2D5B] border border-white/20"></div>
+                    <div class="text-xs font-bold text-white">Azul-Marinho</div>
+                    <div class="text-[11px] font-mono text-slate-300">#0B2D5B</div>
+                    <div class="text-[10px] text-slate-400">Autoridade e Solidez</div>
+                </div>
+
+                <div class="bg-[#071B36] p-4 rounded-2xl border border-slate-700 space-y-2">
+                    <div class="h-14 rounded-xl bg-[#071B36] border border-white/20"></div>
+                    <div class="text-xs font-bold text-white">Azul Profundo</div>
+                    <div class="text-[11px] font-mono text-slate-300">#071B36</div>
+                    <div class="text-[10px] text-slate-400">Fundo Primário</div>
+                </div>
+
+                <div class="bg-[#0B2D5B] p-4 rounded-2xl border border-slate-700 space-y-2">
+                    <div class="h-14 rounded-xl bg-[#FF7A00] border border-white/20"></div>
+                    <div class="text-xs font-bold text-white">Laranja Ação</div>
+                    <div class="text-[11px] font-mono text-slate-300">#FF7A00</div>
+                    <div class="text-[10px] text-slate-400">CTA & Conversão</div>
+                </div>
+
+                <div class="bg-[#0B2D5B] p-4 rounded-2xl border border-slate-700 space-y-2">
+                    <div class="h-14 rounded-xl bg-[#00B4E6] border border-white/20"></div>
+                    <div class="text-xs font-bold text-white">Ciano Conexão</div>
+                    <div class="text-[11px] font-mono text-slate-300">#00B4E6</div>
+                    <div class="text-[10px] text-slate-400">Tecnologia & Libras</div>
+                </div>
+
+                <div class="bg-[#0B2D5B] p-4 rounded-2xl border border-slate-700 space-y-2">
+                    <div class="h-14 rounded-xl bg-[#FFFFFF] border border-white/20"></div>
+                    <div class="text-xs font-bold text-white">Branco Puro</div>
+                    <div class="text-[11px] font-mono text-slate-300">#FFFFFF</div>
+                    <div class="text-[10px] text-slate-400">Texto Primário</div>
+                </div>
+
+                <div class="bg-[#0B2D5B] p-4 rounded-2xl border border-slate-700 space-y-2">
+                    <div class="h-14 rounded-xl bg-[#F2F5F8] border border-white/20"></div>
+                    <div class="text-xs font-bold text-white">Cinza Claro</div>
+                    <div class="text-[11px] font-mono text-slate-300">#F2F5F8</div>
+                    <div class="text-[10px] text-slate-400">Documentos & Apoio</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: BIBLIOTECA DE ATIVOS OFICIAIS EXPORTADOS -->
+        <section class="space-y-6">
+            <div>
+                <h2 class="text-2xl font-bold text-white">Biblioteca de Ativos Vetoriais Oficiais</h2>
+                <p class="text-xs text-slate-400">Arquivos prontos para produção web, social media, materiais impressos e documentos jurídicos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Ativo 1 -->
+                <div class="bg-[#0B2D5B]/30 p-5 rounded-2xl border border-slate-800 space-y-4 flex flex-col justify-between">
+                    <div class="h-28 bg-[#071B36] rounded-xl flex items-center justify-center p-4 border border-slate-800">
+                        <img src="assets/brand/logo-horizontal.svg" alt="Logo Horizontal" class="max-h-full w-auto">
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold text-white">Logotipo Horizontal Oficial</div>
+                        <div class="text-[10px] text-slate-400">Header, banners e assinaturas digitais</div>
+                    </div>
+                    <a href="assets/brand/logo-horizontal.svg" download class="w-full py-2 bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs rounded-lg text-center transition-all">
+                        Baixar SVG
+                    </a>
+                </div>
+
+                <!-- Ativo 2 -->
+                <div class="bg-[#0B2D5B]/30 p-5 rounded-2xl border border-slate-800 space-y-4 flex flex-col justify-between">
+                    <div class="h-28 bg-[#071B36] rounded-xl flex items-center justify-center p-4 border border-slate-800">
+                        <img src="assets/brand/logo-vertical.svg" alt="Logo Vertical" class="max-h-full w-auto">
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold text-white">Logotipo Vertical / Empilhado</div>
+                        <div class="text-[10px] text-slate-400">Crachás, totens e rodapés centrados</div>
+                    </div>
+                    <a href="assets/brand/logo-vertical.svg" download class="w-full py-2 bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs rounded-lg text-center transition-all">
+                        Baixar SVG
+                    </a>
+                </div>
+
+                <!-- Ativo 3 -->
+                <div class="bg-[#0B2D5B]/30 p-5 rounded-2xl border border-slate-800 space-y-4 flex flex-col justify-between">
+                    <div class="h-28 bg-[#071B36] rounded-xl flex items-center justify-center p-4 border border-slate-800">
+                        <img src="assets/brand/logo-symbol.svg" alt="Símbolo Isolado" class="h-16 w-16">
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold text-white">Símbolo Isolado / Ícone</div>
+                        <div class="text-[10px] text-slate-400">Avatares sociais, carimbos e marcas d'água</div>
+                    </div>
+                    <a href="assets/brand/logo-symbol.svg" download class="w-full py-2 bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs rounded-lg text-center transition-all">
+                        Baixar SVG
+                    </a>
+                </div>
+
+                <!-- Ativo 4 -->
+                <div class="bg-[#0B2D5B]/30 p-5 rounded-2xl border border-slate-800 space-y-4 flex flex-col justify-between">
+                    <div class="h-28 bg-[#071B36] rounded-xl flex items-center justify-center p-4 border border-slate-800">
+                        <img src="assets/brand/logo-monochrome.svg" alt="Monocromático" class="max-h-full w-auto">
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold text-white">Versão Monocromática</div>
+                        <div class="text-[10px] text-slate-400">Impressão 1 cor e fundos neutros</div>
+                    </div>
+                    <a href="assets/brand/logo-monochrome.svg" download class="w-full py-2 bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs rounded-lg text-center transition-all">
+                        Baixar SVG
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#071B36] border-t border-slate-800 py-8 text-xs text-slate-400 text-center">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p>&copy; 2026 FOX LIBRAS — Soluções em Acessibilidade. Todos os direitos reservados.</p>
+            <p class="text-[11px] text-slate-500">Fox Store BR / Fox Libras — CNPJ: 66.550.293/0001-99 | Juiz de Fora / MG & Atendimento Nacional</p>
+        </div>
+    </footer>
+
+    <script>
+        function switchConceptTab(tabId, btn) {
+            document.querySelectorAll('.concept-content-tab').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.concept-tab-btn').forEach(b => {
+                b.classList.remove('active', 'bg-[#FF7A00]', 'text-white', 'shadow-md');
+                b.classList.add('text-slate-300');
+            });
+
+            if (tabId === 'conceptA') {
+                document.getElementById('tabConceptA').classList.remove('hidden');
+                btn.classList.add('active', 'bg-[#FF7A00]', 'text-white', 'shadow-md');
+            } else if (tabId === 'conceptB') {
+                document.getElementById('tabConceptB').classList.remove('hidden');
+                btn.classList.add('active', 'bg-sky-600', 'text-white', 'shadow-md');
+            } else if (tabId === 'conceptC') {
+                document.getElementById('tabConceptC').classList.remove('hidden');
+                btn.classList.add('active', 'bg-[#FF7A00]', 'text-white', 'shadow-md');
+            }
+        }
+    </script>
+</body>
+</html>

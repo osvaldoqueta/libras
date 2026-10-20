@@ -1,0 +1,7 @@
+# robots.txt — FOX LIBRAS
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /assets/pdf/
+
+Sitemap: https://libras.foxstorebr.com/sitemap.xml
