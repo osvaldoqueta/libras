@@ -1025,6 +1025,386 @@ function scrollToTop() {
 
 window.addEventListener('hashchange', checkAdminRoute);
 
+// --- 16. COMPLIANCE & LBI DIAGNOSTIC SCANNER CONTROLLER ---
+const LBI_DIAGNOSTIC_DATA = {
+    sectors: {
+        'saude': {
+            name: 'Saúde, Hospitais & Clínicas',
+            icon: 'fa-hospital',
+            baseRisk: 92,
+            lawRef: 'Lei nº 13.146/2015 (Art. 18) & Resolução CFM nº 2.217/2018 (Consentimento Livre e Esclarecido)',
+            risks: [
+                'Nulidade de termos de consentimento informado para procedimentos anestésicos e cirúrgicos.',
+                'Erros na coleta de anamnese, dosagens farmacológicas e prescrições por ausência de comunicação bidirecional.',
+                'Processos judiciais por danos morais e materiais por negativa de atendimento acessível comprovado.'
+            ],
+            solutionTitle: 'Central On-Demand Hospitalar 24/7',
+            solutionDesc: 'Conexão via tablet da equipe médica com Intérpretes Mestres em menos de 45 segundos, com gravação de prontuário e ata assinada.',
+            sla: '< 45 segundos',
+            activation: '24 a 48 horas'
+        },
+        'banco': {
+            name: 'Bancos, Fintechs & E-commerce',
+            icon: 'fa-building-columns',
+            baseRisk: 86,
+            lawRef: 'Código de Defesa do Consumidor, Resolução BACEN nº 4.949/2021 & LBI Art. 67',
+            risks: [
+                'Ações do PROCON e do Ministério Público por falta de canal SAC efetivo para clientes surdos.',
+                'Nulidade de contratos de crédito, seguros e renegociações por vício de consentimento.',
+                'Perda direta de faturamento no e-commerce devido ao abandono de carrinho por falta de suporte em Libras.'
+            ],
+            solutionTitle: 'Widget SAC Web & App On-Demand',
+            solutionDesc: 'Botão flutuante integrado ao seu site ou app sem atrito, fornecendo atendimento humano ao vivo com protocolo auditável para o BACEN.',
+            sla: '< 60 segundos',
+            activation: '24 a 72 horas'
+        },
+        'educacao': {
+            name: 'Educação Superior, Faculdades & EAD',
+            icon: 'fa-graduation-cap',
+            baseRisk: 89,
+            lawRef: 'Decreto Federal nº 5.626/2005 & Instrumentos de Avaliação Institucional do MEC',
+            risks: [
+                'Perda de pontuação e notas baixas nas comissões de recredenciamento do MEC.',
+                'Mandados de segurança e ações civis públicas exigindo intérpretes em aulas e bancas acadêmicas.',
+                'Evasão de alunos surdos por falta de repertório técnico especializado em disciplinas complexas.'
+            ],
+            solutionTitle: 'Retentor Mensal Universitário & EAD',
+            solutionDesc: 'Equipe de intérpretes mestres com repertório científico avançado para aulas ao vivo, bancas e tradução de videoaulas com janela ABNT.',
+            sla: 'Plantão Programado',
+            activation: 'Imediata'
+        },
+        'eventos': {
+            name: 'Eventos, Congressos & Lives',
+            icon: 'fa-microphone',
+            baseRisk: 78,
+            lawRef: 'Norma ABNT NBR 15290 & Art. 42 da Lei Brasileira de Inclusão nº 13.146/2015',
+            risks: [
+                'Janela de Libras em desacordo com a NBR 15290 (tamanho inferior a 1/5 da tela ou sem contraste).',
+                'Exaustão e perda de precisão por contratação de apenas 1 profissional sem o revezamento obrigatório de 20 min.',
+                'Constrangimento e cancelamento de transmissão por queixas públicas da comunidade nas redes sociais.'
+            ],
+            solutionTitle: 'Equipe de Transmissão & Janela HD',
+            solutionDesc: 'Duplas de intérpretes mestres em revezamento contínuo, estudo terminológico prévio das palestras e feed de vídeo em alta definição.',
+            sla: 'SLA 100% no Ar',
+            activation: '7 dias antes'
+        },
+        'publico': {
+            name: 'Órgão Público, Judiciário & Câmaras',
+            icon: 'fa-scale-balanced',
+            baseRisk: 95,
+            lawRef: 'Constituição Federal (Art. 5º), LBI nº 13.146/2015 & Resoluções do CNJ',
+            risks: [
+                'Nulidade de audiências judiciais e sessões legislativas por cerceamento de defesa de partes surdas.',
+                'Notificações e relatórios de auditoria do Tribunal de Contas e Ministérios Públicos.',
+                'Vício de publicidade em pronunciamentos oficiais e audiências públicas sem acessibilidade plena.'
+            ],
+            solutionTitle: 'Plantão Forense & Governamental',
+            solutionDesc: 'Intérpretes de excelência com domínio de jargão jurídico, segredo de justiça e emissão de laudo técnico de fé pública.',
+            sla: 'Plantão Dedicado',
+            activation: 'Contrato Administrativo'
+        }
+    },
+    solutions: {
+        'nenhuma': {
+            name: 'Nenhuma Solução em Libras',
+            riskMult: 1.0,
+            comprehension: 4,
+            statusBadge: 'RISCO EXTREMO • NÃO CONFORMIDADE TOTAL',
+            statusClass: 'bg-red-500/20 text-red-400 border-red-500/40',
+            barColor: 'from-red-600 to-rose-600',
+            textColor: 'text-red-400',
+            description: 'Sua empresa está em situação de total vulnerabilidade jurídica e descumprimento expresso da Lei nº 13.146/2015. O cliente surdo é completamente excluído da jornada.'
+        },
+        'avatar': {
+            name: 'Avatar 3D / Plugin Automatizado',
+            riskMult: 0.88,
+            comprehension: 18,
+            statusBadge: 'RISCO CRÍTICO • ACESSIBILIDADE DE FACHADA',
+            statusClass: 'bg-rose-500/20 text-rose-400 border-rose-500/40',
+            barColor: 'from-rose-600 to-amber-600',
+            textColor: 'text-rose-400',
+            description: 'Avatares realizam glosa palavra-por-palavra sem expressões faciais (parâmetro obrigatório da Libras). Mais de 82% da mensagem se perde, gerando riscos de notificação por acessibilidade ilusória.'
+        },
+        'legenda': {
+            name: 'Legenda Automática de IA',
+            riskMult: 0.72,
+            comprehension: 32,
+            statusBadge: 'ALTO RISCO • BARREIRA LINGUÍSTICA',
+            statusClass: 'bg-amber-500/20 text-amber-400 border-amber-500/40',
+            barColor: 'from-amber-600 to-yellow-500',
+            textColor: 'text-amber-400',
+            description: 'Libras não é português. Para mais de 70% da comunidade surda brasileira, a Libras é a primeira língua (L1) e o português escrito é segunda língua (L2). Legendas não garantem equidade.'
+        },
+        'avulso': {
+            name: 'Intérprete Avulso Sem Contrato',
+            riskMult: 0.42,
+            comprehension: 72,
+            statusBadge: 'VULNERABILIDADE MODERADA • RISCO OPERACIONAL',
+            statusClass: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/40',
+            barColor: 'from-yellow-500 to-emerald-500',
+            textColor: 'text-yellow-400',
+            description: 'Intérpretes avulsos têm boa intenção, mas faltam SLAs rígidos, equipe de substituição em caso de imprevistos e relatórios formais para auditorias de compliance e ESG.'
+        },
+        'fox': {
+            name: 'Intérprete Mestre FOX LIBRAS',
+            riskMult: 0.0,
+            comprehension: 99.6,
+            statusBadge: '100% LBI COMPLIANT • BLINDAGEM TOTAL',
+            statusClass: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40',
+            barColor: 'from-emerald-500 to-teal-400',
+            textColor: 'text-emerald-400',
+            description: 'Acessibilidade de alto nível validada por Mestres em Educação. Comunicação bidirecional humanizada, relatórios auditáveis e conformidade jurídica plena perante o Ministério Público.'
+        }
+    },
+    channels: {
+        'sac': 'SAC / Central de Atendimento Web',
+        'eventos': 'Eventos e Congressos ao Vivo',
+        'ead': 'Cursos EAD e Treinamentos Internos',
+        'presencial': 'Atendimento Presencial e Recepção'
+    },
+    scenarios: {
+        'hospital': {
+            title: 'Caso 1: Consentimento Cirúrgico & Anamnese Médica',
+            context: 'Paciente surdo com abdômen agudo dá entrada no pronto-socorro precisando de cirurgia de emergência e instruções de jejum e medicação.',
+            avatarSummary: 'Traduz ao pé da letra "você está em jejum de 8 horas?" como "você comer relógio 8 nada vezes". Sem expressões faciais de gravidade. O paciente balança a cabeça concordando sem entender.',
+            avatarCons: 'Risco gravíssimo de broncoaspiração, óbito anestésico e processo civil e criminal contra o hospital.',
+            avatarComp: '14%',
+            avatarRisk: 'Crítico (10/10)',
+            avatarNps: '-82',
+            foxSummary: 'Intérprete mestre conecta em menos de 45s via tablet hospitalar, utiliza riqueza de detalhes visuais e confirma o horário exato da última ingestão de água. O paciente informa ter bebido café.',
+            foxCons: 'Cirurgia reprogramada com segurança, ata técnica assinada anexada ao prontuário médico, conformidade plena com o CFM.',
+            foxComp: '99.8%',
+            foxRisk: 'Zero (0/10)',
+            foxNps: '+99'
+        },
+        'banco': {
+            title: 'Caso 2: Renegociação de Dívidas & Contrato de Crédito',
+            context: 'Cliente surdo busca o banco para renegociar débito do cartão de crédito com parcelamento em 36 vezes e juros de mora.',
+            avatarSummary: 'Soletra rapidamente siglas como "C-D-I" e "I-O-F". Inverte o vetor de orientação do sinal de pagamento, parecendo que o banco pagará o cliente. O cliente assina sem compreender a dívida real.',
+            avatarCons: 'Ação civil no PROCON, nulidade das cláusulas de juros por vício de consentimento e dano moral coletivo.',
+            avatarComp: '22%',
+            avatarRisk: 'Alto (9/10)',
+            avatarNps: '-68',
+            foxSummary: 'Intérprete alinha os valores de entrada e encargos, contextualiza o Custo Efetivo Total (CET) e dialoga tirando todas as dúvidas com acolhimento.',
+            foxCons: 'Recuperação de crédito bem-sucedida, retenção do cliente e ata auditável de conformidade para o BACEN.',
+            foxComp: '99.2%',
+            foxRisk: 'Zero (0/10)',
+            foxNps: '+97'
+        },
+        'academico': {
+            title: 'Caso 3: Aula Magna Universitária & Banca Acadêmica',
+            context: 'Estudante surda em curso de pós-graduação assiste a seminário denso de Direito Constitucional e Hermenêutica Jurídica.',
+            avatarSummary: 'O avatar não reconhece termos abstratos ou expressões técnicas e simplesmente trava ou sinaliza palavras genéricas desconexas ("lei grande livro").',
+            avatarCons: 'Evasão universitária, processo por exclusão pedagógica perante o MPF e perda de nota no MEC.',
+            avatarComp: '10%',
+            avatarRisk: 'Crítico (10/10)',
+            avatarNps: '-90',
+            foxSummary: 'Intérprete (ele próprio Mestre em Educação) recebeu o glossário técnico previamente e sinaliza com rigor epistemológico, concordância e profundidade.',
+            foxCons: 'Equidade educacional real, nota máxima da universidade na avaliação do MEC e aluna aprovada na banca.',
+            foxComp: '99.6%',
+            foxRisk: 'Zero (0/10)',
+            foxNps: '+100'
+        }
+    }
+};
+
+let currentDiagnosticState = {
+    sector: 'saude',
+    solution: 'avatar',
+    channel: 'sac'
+};
+
+function switchComplianceTab(tabId, btn) {
+    document.querySelectorAll('.compliance-tab-content').forEach(el => el.classList.add('hidden'));
+    document.querySelectorAll('.compliance-tab-btn').forEach(b => {
+        b.classList.remove('active', 'bg-sky-600', 'text-white', 'shadow-lg');
+        b.classList.add('text-slate-300');
+    });
+
+    if (tabId === 'scanner') {
+        const el = document.getElementById('tabContentScanner');
+        if (el) el.classList.remove('hidden');
+        if (btn) btn.classList.add('active', 'bg-sky-600', 'text-white', 'shadow-lg');
+    } else if (tabId === 'laboratorio') {
+        const el = document.getElementById('tabContentLaboratorio');
+        if (el) el.classList.remove('hidden');
+        if (btn) btn.classList.add('active', 'bg-sky-600', 'text-white', 'shadow-lg');
+    } else if (tabId === 'parametros') {
+        const el = document.getElementById('tabContentParametros');
+        if (el) el.classList.remove('hidden');
+        if (btn) btn.classList.add('active', 'bg-sky-600', 'text-white', 'shadow-lg');
+    }
+}
+
+function setDiagnosticSector(sectorKey, el) {
+    currentDiagnosticState.sector = sectorKey;
+    document.querySelectorAll('.diag-sector-btn').forEach(b => {
+        b.classList.remove('active', 'border-sky-500', 'bg-sky-500/10', 'text-white');
+        b.classList.add('border-slate-800', 'text-slate-300');
+    });
+    if (el) {
+        el.classList.add('active', 'border-sky-500', 'bg-sky-500/10', 'text-white');
+        el.classList.remove('border-slate-800', 'text-slate-300');
+    }
+    updateLbiDiagnostic();
+}
+
+function setDiagnosticSolution(solutionKey, el) {
+    currentDiagnosticState.solution = solutionKey;
+    document.querySelectorAll('.diag-solution-btn').forEach(b => {
+        b.classList.remove('active', 'border-sky-500', 'bg-sky-500/10', 'text-white');
+        b.classList.add('border-slate-800', 'text-slate-300');
+    });
+    if (el) {
+        el.classList.add('active', 'border-sky-500', 'bg-sky-500/10', 'text-white');
+        el.classList.remove('border-slate-800', 'text-slate-300');
+    }
+    updateLbiDiagnostic();
+}
+
+function setDiagnosticChannel(channelKey, el) {
+    currentDiagnosticState.channel = channelKey;
+    document.querySelectorAll('.diag-channel-btn').forEach(b => {
+        b.classList.remove('active', 'border-sky-500', 'bg-sky-500/10', 'text-white');
+        b.classList.add('border-slate-800', 'text-slate-300');
+    });
+    if (el) {
+        el.classList.add('active', 'border-sky-500', 'bg-sky-500/10', 'text-white');
+        el.classList.remove('border-slate-800', 'text-slate-300');
+    }
+    updateLbiDiagnostic();
+}
+
+function updateLbiDiagnostic() {
+    const s = LBI_DIAGNOSTIC_DATA.sectors[currentDiagnosticState.sector] || LBI_DIAGNOSTIC_DATA.sectors['saude'];
+    const sol = LBI_DIAGNOSTIC_DATA.solutions[currentDiagnosticState.solution] || LBI_DIAGNOSTIC_DATA.solutions['avatar'];
+    const ch = LBI_DIAGNOSTIC_DATA.channels[currentDiagnosticState.channel] || 'SAC';
+
+    const riskScore = Math.round(s.baseRisk * sol.riskMult);
+    const compScore = sol.comprehension;
+
+    // Update gauges & numbers
+    const scoreRiskEl = document.getElementById('diagRiskNumber');
+    if (scoreRiskEl) scoreRiskEl.textContent = `${riskScore}%`;
+
+    const scoreCompEl = document.getElementById('diagCompNumber');
+    if (scoreCompEl) scoreCompEl.textContent = `${compScore}%`;
+
+    const badgeEl = document.getElementById('diagStatusBadge');
+    if (badgeEl) {
+        badgeEl.className = `px-3.5 py-1.5 rounded-full text-xs font-bold border tracking-wide inline-flex items-center gap-1.5 ${sol.statusClass}`;
+        badgeEl.innerHTML = `<span class="w-2 h-2 rounded-full animate-ping ${sol.textColor === 'text-emerald-400' ? 'bg-emerald-400' : 'bg-red-400'}"></span> ${sol.statusBadge}`;
+    }
+
+    const barRiskEl = document.getElementById('diagRiskBar');
+    if (barRiskEl) {
+        barRiskEl.style.width = `${Math.max(5, riskScore)}%`;
+        barRiskEl.className = `h-3 rounded-full bg-gradient-to-r ${sol.barColor} transition-all duration-500`;
+    }
+
+    const barCompEl = document.getElementById('diagCompBar');
+    if (barCompEl) {
+        barCompEl.style.width = `${Math.max(5, compScore)}%`;
+    }
+
+    // Texts
+    const lawRefEl = document.getElementById('diagLawRef');
+    if (lawRefEl) lawRefEl.textContent = s.lawRef;
+
+    const solDescEl = document.getElementById('diagSolutionDesc');
+    if (solDescEl) solDescEl.textContent = sol.description;
+
+    const risksListEl = document.getElementById('diagRisksList');
+    if (risksListEl) {
+        risksListEl.innerHTML = s.risks.map(r => `
+            <li class="flex items-start gap-2.5 text-xs text-slate-300">
+                <i class="fa-solid fa-triangle-exclamation text-amber-400 mt-0.5 shrink-0"></i>
+                <span>${r}</span>
+            </li>
+        `).join('');
+    }
+
+    const recTitleEl = document.getElementById('diagRecTitle');
+    if (recTitleEl) recTitleEl.textContent = s.solutionTitle;
+
+    const recDescEl = document.getElementById('diagRecDesc');
+    if (recDescEl) recDescEl.textContent = s.solutionDesc;
+
+    const recSlaEl = document.getElementById('diagRecSla');
+    if (recSlaEl) recSlaEl.textContent = s.sla;
+
+    const recActEl = document.getElementById('diagRecActivation');
+    if (recActEl) recActEl.textContent = s.activation;
+}
+
+function switchScenario(scenarioKey, el) {
+    const sc = LBI_DIAGNOSTIC_DATA.scenarios[scenarioKey];
+    if (!sc) return;
+
+    document.querySelectorAll('.scenario-select-btn').forEach(b => {
+        b.classList.remove('active', 'border-sky-500', 'bg-sky-500/20', 'text-white');
+        b.classList.add('border-slate-800', 'text-slate-400');
+    });
+    if (el) {
+        el.classList.add('active', 'border-sky-500', 'bg-sky-500/20', 'text-white');
+        el.classList.remove('border-slate-800', 'text-slate-400');
+    }
+
+    // Update scenario view
+    const titleEl = document.getElementById('scenTitleDisplay');
+    if (titleEl) titleEl.textContent = sc.title;
+
+    const ctxEl = document.getElementById('scenContextDisplay');
+    if (ctxEl) ctxEl.textContent = sc.context;
+
+    const aSumEl = document.getElementById('scenAvatarSummary');
+    if (aSumEl) aSumEl.textContent = sc.avatarSummary;
+
+    const aConsEl = document.getElementById('scenAvatarCons');
+    if (aConsEl) aConsEl.textContent = sc.avatarCons;
+
+    const aCompEl = document.getElementById('scenAvatarComp');
+    if (aCompEl) aCompEl.textContent = sc.avatarComp;
+
+    const aRiskEl = document.getElementById('scenAvatarRisk');
+    if (aRiskEl) aRiskEl.textContent = sc.avatarRisk;
+
+    const aNpsEl = document.getElementById('scenAvatarNps');
+    if (aNpsEl) aNpsEl.textContent = sc.avatarNps;
+
+    const fSumEl = document.getElementById('scenFoxSummary');
+    if (fSumEl) fSumEl.textContent = sc.foxSummary;
+
+    const fConsEl = document.getElementById('scenFoxCons');
+    if (fConsEl) fConsEl.textContent = sc.foxCons;
+
+    const fCompEl = document.getElementById('scenFoxComp');
+    if (fCompEl) fCompEl.textContent = sc.foxComp;
+
+    const fRiskEl = document.getElementById('scenFoxRisk');
+    if (fRiskEl) fRiskEl.textContent = sc.foxRisk;
+
+    const fNpsEl = document.getElementById('scenFoxNps');
+    if (fNpsEl) fNpsEl.textContent = sc.foxNps;
+}
+
+function requestLbiAuditReport() {
+    const s = LBI_DIAGNOSTIC_DATA.sectors[currentDiagnosticState.sector] || LBI_DIAGNOSTIC_DATA.sectors['saude'];
+    const sol = LBI_DIAGNOSTIC_DATA.solutions[currentDiagnosticState.solution] || LBI_DIAGNOSTIC_DATA.solutions['avatar'];
+    const ch = LBI_DIAGNOSTIC_DATA.channels[currentDiagnosticState.channel] || 'SAC';
+    const riskScore = Math.round(s.baseRisk * sol.riskMult);
+
+    const message = `Olá, Prof. Mestre Osvaldo Queta e equipe FOX LIBRAS! Realizei o Diagnóstico de Compliance LBI no site:
+- Setor: ${s.name}
+- Solução Atual: ${sol.name}
+- Canal Crítico: ${ch}
+- Nível de Risco Calculado: ${riskScore}%
+Gostaria de solicitar o Laudo de Auditoria LBI e agendar uma reunião de diagnóstico técnico para minha empresa.`;
+
+    const encoded = encodeURIComponent(message);
+    window.open(`https://wa.me/5563992581001?text=${encoded}`, '_blank');
+}
+
 // Inicialização Completa no Carregamento do DOM
 window.addEventListener('DOMContentLoaded', () => {
     calcularInvestimento();
@@ -1033,9 +1413,22 @@ window.addEventListener('DOMContentLoaded', () => {
     renderGalleryCarousel();
     recordVisitTelemetry();
     checkAdminRoute();
+    updateLbiDiagnostic();
 });
 
-
-
-
-new window.VLibras.Widget('https://vlibras.gov.br/app');
+if (typeof window !== 'undefined') {
+    const initVLibras = () => {
+        if (window.VLibras && typeof window.VLibras.Widget === 'function') {
+            try {
+                new window.VLibras.Widget('https://vlibras.gov.br/app');
+            } catch (e) {
+                console.warn('VLibras init warning:', e);
+            }
+        }
+    };
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        initVLibras();
+    } else {
+        window.addEventListener('DOMContentLoaded', initVLibras);
+    }
+}
